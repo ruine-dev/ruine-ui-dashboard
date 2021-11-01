@@ -1,0 +1,29 @@
+---
+import Logo from './Logo.astro';
+import SidebarHeading from './SidebarHeading.astro';
+import SidebarItem from './SidebarItem.astro';
+
+const menu = [
+  {
+    icon: <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 20v-7.826a4 4 0 0 0-1.253-2.908l-7.373-6.968a2 2 0 0 0-2.748 0L3.253 9.266A4 4 0 0 0 2 12.174V20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z"/></svg>,
+    label: 'Dashboard',
+    href: '/'
+  },
+];
+---
+
+<aside class="fixed top-0 left-0 z-10 w-64 h-full pt-5 transform -translate-x-64 border-r border-gray-300 md:translate-x-0 md:sticky bg-white/80 backdrop-filter backdrop-blur-xl">
+  <div class="text-center">
+    <Logo className="text-xl px-6" />
+  </div>
+  <nav class="h-full pl-6 pr-3 mt-5 overflow-y-auto">
+    <ul class="pb-6 font-medium text-gray-400">
+      <SidebarHeading>Main Menu</SidebarHeading>
+      {menu.map(({icon, label, href}) => (
+        <SidebarItem href={href}>
+          <span class="flex items-center">{icon} {label}</span>
+        </SidebarItem>
+      ))}
+    </ul>
+  </nav>
+</aside>

@@ -1,0 +1,22 @@
+---
+import clsx from 'clsx';
+
+const { size = 'md' } = Astro.props;
+
+const getSize = (size) => {
+  const sizes = {
+    sm: 'w-8 h-8',
+    md: 'w-12 h-12',
+    lg: 'w-16 h-16',
+  }
+
+  return sizes[size];
+}
+---
+
+<div class={clsx(
+  'flex items-center justify-center text-white bg-primary-600 rounded-xl',
+  getSize(size))}
+  >
+  <slot />
+</div>

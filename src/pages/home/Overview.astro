@@ -1,0 +1,30 @@
+---
+import StatsCard from '$components/StatsCard.astro';
+
+const stats = [
+  {
+    label: 'Account balance',
+    value: '$ 21,853',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7z"/><circle cx="12" cy="12" r="3"/><path d="M2 9v0a4 4 0 0 0 4-4v0"/><path d="M18 19v0a4 4 0 0 1 4-4v0"/></svg>,
+  },
+  {
+    label: 'Total users',
+    value: '1,279',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.719 19.752l-.64-5.124A3 3 0 0 0 13.101 12h-2.204a3 3 0 0 0-2.976 2.628l-.641 5.124A2 2 0 0 0 9.266 22h5.468a2 2 0 0 0 1.985-2.248z"/><circle cx="12" cy="5" r="3"/><circle cx="4" cy="9" r="2"/><circle cx="20" cy="9" r="2"/><path d="M4 14h-.306a2 2 0 0 0-1.973 1.671l-.333 2A2 2 0 0 0 3.361 20H7"/><path d="M20 14h.306a2 2 0 0 1 1.973 1.671l.333 2A2 2 0 0 1 20.639 20H17"/></svg>,
+  },
+  {
+    label: 'New orders',
+    value: '604',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608L5 7z"/><path d="M5 7l-.81-3.243A1 1 0 0 0 3.22 3H2"/><path d="M8 21h2"/><path d="M16 21h2"/></svg>,
+  }
+];
+---
+
+<section>
+  <h2 class="text-xl font-bold text-gray-700">Overview</h2>
+  <div class="grid grid-cols-3 mt-4 gap-x-6">
+  {stats.map(({label, value, icon}) => (
+    <StatsCard label={label} value={value} icon={icon} />
+  ))}
+  </div>
+</section>

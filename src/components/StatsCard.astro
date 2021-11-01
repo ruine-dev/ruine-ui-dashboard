@@ -1,0 +1,17 @@
+---
+import clsx from 'clsx';
+import Card from './Card.astro';
+import IconBox from './IconBox.astro';
+
+const { label, value, icon, className } = Astro.props;
+---
+
+<Card className={clsx('flex items-center p-4 space-x-4', className)}>
+  <IconBox>
+    {icon}
+  </IconBox>
+  <div class="flex flex-col justify-between h-full">
+    <p class="text-sm font-medium text-gray-500">{label}</p>
+    <p class="text-2xl font-bold text-gray-700">{value}</p>
+  </div>
+</Card>

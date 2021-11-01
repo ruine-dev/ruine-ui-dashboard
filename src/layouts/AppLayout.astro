@@ -1,0 +1,37 @@
+---
+import Navbar from '$components/Navbar.astro';
+import Sidebar from '$components/Sidebar.astro';
+
+const { title } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    {Boolean(title) && <title>{title} - ruine UI</title>}
+    <link rel="stylesheet" href="{Astro.resolve('../styles/global.css')}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased">
+    <div class="flex h-screen overflow-y-hidden">
+      <Sidebar />
+      <div class="flex flex-col flex-1">
+        <Navbar />
+        <div class="h-full overflow-y-auto">
+          <main class="p-6">
+            {Boolean(title) && <h1 class="text-3xl font-bold text-gray-700">{title}</h1>}
+            <div class="mt-6">
+              <slot />
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
