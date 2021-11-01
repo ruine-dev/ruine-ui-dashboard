@@ -8,8 +8,8 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    {Boolean(title) && <title>{title} - ruine UI</title>}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {Boolean(title) ? <title>{title} - ruine UI</title> : <title>ruine UI Dashboard</title>}
     <link rel="stylesheet" href="{Astro.resolve('../styles/global.css')}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -19,19 +19,15 @@ const { title } = Astro.props;
     />
   </head>
   <body class="antialiased">
-    <div class="flex h-screen overflow-y-hidden">
-      <Sidebar />
-      <div class="flex flex-col flex-1">
-        <Navbar />
-        <div class="h-full overflow-y-auto">
-          <main class="p-6">
-            {Boolean(title) && <h1 class="text-3xl font-bold text-gray-700">{title}</h1>}
-            <div class="mt-6">
-              <slot />
-            </div>
-          </main>
+    <Sidebar />
+    <div class="flex flex-col flex-1 lg:pl-64">
+      <Navbar />
+      <main class="p-6">
+        {Boolean(title) && <h1 class="text-3xl font-bold text-gray-700">{title}</h1>}
+        <div class="mt-6">
+          <slot />
         </div>
-      </div>
+      </main>
     </div>
   </body>
 </html>

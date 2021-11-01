@@ -1,6 +1,6 @@
 ---
 import clsx from 'clsx';
-const { color } = Astro.props;
+const { color, className } = Astro.props;
 
 const colors = {
   gray: 'bg-gray-100 text-gray-800',
@@ -14,6 +14,6 @@ const colors = {
 }
 ---
 
-<span class={clsx('font-medium px-1 text-sm', colors[color])}>
+<span class={clsx('font-medium px-1 text-sm', colors[color], className)}>
   <slot />
 </span>

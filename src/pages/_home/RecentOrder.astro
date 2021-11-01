@@ -1,0 +1,169 @@
+---
+import Avatar from '$components/Avatar.astro';
+import Badge from '$components/Badge.astro';
+import Button from '$components/Button.astro';
+import Card from '$components/Card.astro';
+import IconButton from '$components/IconButton.astro';
+
+const orders = [{
+  avatar: `https://randomuser.me/api/portraits/women/4.jpg`,
+  buyer: 'Bealle Frankland',
+  amount: '65.94',
+  date: 'November 01, 2021',
+  status: 'Pending',
+}, {
+  avatar: `https://randomuser.me/api/portraits/women/8.jpg`,
+  buyer: 'Kelsi Kohrt',
+  amount: '51.61',
+  date: 'October 31, 2021',
+  status: 'Pending',
+}, {
+  avatar: `https://randomuser.me/api/portraits/men/12.jpg`,
+  buyer: 'Denny Marfell',
+  amount: '40.32',
+  date: 'October 30, 2021',
+  status: 'Processed',
+}, {
+  avatar: `https://randomuser.me/api/portraits/women/16.jpg`,
+  buyer: 'Dede Iowarch',
+  amount: '57.89',
+  date: 'October 30, 2021',
+  status: 'Canceled',
+}, {
+  avatar: `https://randomuser.me/api/portraits/women/20.jpg`,
+  buyer: 'Carmelia Bushill',
+  amount: '90.29',
+  date: 'October 29, 2021',
+  status: 'Processed',
+}, {
+  avatar: `https://randomuser.me/api/portraits/men/24.jpg`,
+  buyer: 'Afton Maior',
+  amount: '94.93',
+  date: 'October 29, 2021',
+  status: 'Completed',
+}, {
+  avatar: `https://randomuser.me/api/portraits/women/28.jpg`,
+  buyer: 'Eula Issacson',
+  amount: '66.65',
+  date: 'October 29, 2021',
+  status: 'Completed',
+}, {
+  avatar: `https://randomuser.me/api/portraits/women/32.jpg`,
+  buyer: 'Javier Blabber',
+  amount: '65.52',
+  date: 'October 27, 2021',
+  status: 'Canceled',
+}, {
+  avatar: `https://randomuser.me/api/portraits/men/36.jpg`,
+  buyer: 'Nikolaos Ciotto',
+  amount: '74.66',
+  date: 'October 26, 2021',
+  status: 'Completed',
+}, {
+  avatar: `https://randomuser.me/api/portraits/men/40.jpg`,
+  buyer: 'Delbert McIlharga',
+  amount: '35.38',
+  date: 'October 26, 2021',
+  status: 'Completed',
+}]
+
+const statuses = {
+  'Pending': 'yellow',
+  'Processed': 'blue',
+  'Completed': 'green',
+  'Canceled': 'gray'
+}
+---
+<section>
+  <h2 class="text-xl font-bold text-gray-700">Recent Orders</h2>
+  <Card className="mt-4 overflow-hidden">
+    <div class="hidden md:block">
+      <table class="min-w-full">
+        <thead>
+          <tr class="text-sm tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
+            <th class="px-4 py-4">
+              Buyer
+            </th>
+            <th class="px-4 py-4 text-right">
+              Amount
+            </th>
+            <th class="px-4 py-4">
+              Status
+            </th>
+            <th class="px-4 py-4 text-right">
+              Date
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700 divide-y">
+        {orders.map(({ avatar, buyer, amount, status, date }) => (
+          <tr>
+            <td class="w-full px-4 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <Avatar src={avatar} alt={`${buyer}'s Avatar'`} />
+                <div class="ml-3">
+                  <p class="font-medium">{buyer}</p>
+                  <p class="text-sm text-gray-500">Customer</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-4 py-4 text-right whitespace-nowrap">
+              $ {amount} USD
+            </td>
+            <td class="px-4 py-4 whitespace-nowrap">
+              <Badge color={statuses[status]}>{status}</Badge>
+            </td>
+            <td class="px-4 py-4 text-right whitespace-nowrap">
+              {date}
+            </td>
+          </tr>
+        ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="block md:hidden">
+      <ul class="text-gray-700 divide-y">
+        {orders.map(({ avatar, buyer, amount, date, status }) => (
+          <li class="p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">{date}</span>
+              <Badge color={statuses[status]}>{status}</Badge>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <div class="flex items-center">
+                <Avatar src={avatar} alt={`${buyer}'s Avatar'`} />
+                <div class="ml-3">
+                  <p class="font-medium">{buyer}</p>
+                  <p class="text-sm text-gray-500">Customer</p>
+                </div>
+              </div>
+              <span>$ {amount} USD</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="w-full px-4 py-4 text-gray-700 border-t bg-gray-50">
+      <div class="items-center justify-between hidden md:flex">
+        <span>Showing 11 to 20 of 100 results</span>
+        <div class="flex items-center space-x-2">
+          <IconButton size="sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4l-8 8 8 8"/></svg>
+          </IconButton>
+          <IconButton size="sm"><span class="flex items-center justify-center w-4 h-4">1</span></IconButton>
+          <IconButton size="sm" color="primary"><span class="flex items-center justify-center w-4 h-4">2</span></IconButton>
+          <IconButton size="sm"><span class="flex items-center justify-center w-4 h-4">3</span></IconButton>
+          <IconButton size="sm"><span class="flex items-center justify-center w-4 h-4">...</span></IconButton>
+          <IconButton size="sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l8 8-8 8"/></svg>
+          </IconButton>
+        </div>
+      </div>
+      <div class="flex items-center justify-between md:hidden">
+        <Button>Previous</Button>
+        <span class="hidden sm:block">Showing 11 to 20 of 100 results</span>
+        <Button>Next</Button>
+      </div>
+    </div>
+  </Card>
+</section>

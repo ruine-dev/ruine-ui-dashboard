@@ -1,0 +1,50 @@
+---
+import clsx from 'clsx';
+
+const { size = 'md', color = 'white', className } = Astro.props;
+
+const getSize = (size) => {
+  const sizes = {
+    sm: 'py-1 px-4',
+    md: 'py-2 px-6',
+    lg: 'py-3 px-8 text-lg',
+  };
+
+  return sizes[size];
+};
+
+const getColor = (color) => {
+  const noBorder = 'border border-transparent';
+  const noTransparent = 'ring-offset-2';
+  const noWhiteClasses = clsx('text-white', noBorder);
+  const noDangerClasses = 'ring-primary-600';
+
+  const colors = {
+    primary: clsx(
+      'bg-primary-600 hover:bg-primary-700 ',
+      noWhiteClasses,
+      noDangerClasses,
+      noTransparent,
+    ),
+    danger: clsx('bg-danger-600 hover:bg-danger-700 ', noWhiteClasses, noTransparent),
+    white: clsx(
+      'bg-white hover:bg-gray-50 text-gray-700 border border-gray-300',
+      noDangerClasses,
+      noTransparent,
+    ),
+    transparent: clsx('hover:bg-gray-100 text-gray-700', noBorder),
+  };
+
+  return colors[color];
+};
+---
+<button
+  class={clsx(
+    'disabled:opacity-60 shadow-sm inline-flex rounded-lg font-medium active:scale-90 transition outline-none focus:ring-2 tracking-wide disabled:cursor-not-allowed',
+    getSize(size),
+    getColor(color),
+    className,
+  )}
+>
+  <slot />
+</button>
