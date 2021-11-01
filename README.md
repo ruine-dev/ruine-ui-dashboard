@@ -4,6 +4,9 @@ Currently work in progress!
 
 Let us know that you're interested to use this template by giving it a star :)
 
+Demo:
+https://ruine-dashboard.pages.dev/
+
 ## To do
 
 - [x] Dashboard page
