@@ -1,42 +1,17 @@
-# Astro Starter Kit: Minimal
+# ruine UI Dashboard HTML Template
 
-```
-npm init astro -- --template minimal
-```
+Currently work in progress!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/snowpackjs/astro/tree/latest/examples/minimal)
+Let us know that you're interested to use this template by giving it a star :)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## To do
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command         | Action                                      |
-|:----------------|:--------------------------------------------|
-| `npm install`   | Installs dependencies                       |
-| `npm run dev`   | Starts local dev server at `localhost:3000` |
-| `npm run build` | Build your production site to `./dist/`     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://github.com/snowpackjs/astro) or jump into our [Discord server](https://astro.build/chat).
+- [x] Dashboard page
+- [ ] Make sidebar and dropdown interactive (Using alpine)
+- [ ] Blank page
+- [ ] User list page
+- [ ] User details page
+- [ ] Login page
+- [ ] Register page
+- [ ] Forgot password page
+- [ ] 404 page
