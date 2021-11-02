@@ -10,10 +10,12 @@ https://ruine-dashboard.pages.dev/
 ## To do
 
 - [x] Dashboard page
-- [ ] Make sidebar and dropdown interactive (Using alpine)
+- [x] Make sidebar and dropdown interactive (Using alpine)
+- [ ] Popover for notification (Using alpine)
 - [ ] Blank page
 - [ ] User list page
 - [ ] User details page
+- [ ] Profile page
 - [ ] Login page
 - [ ] Register page
 - [ ] Forgot password page
