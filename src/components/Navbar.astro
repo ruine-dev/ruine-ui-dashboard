@@ -7,7 +7,7 @@ import Input from './Input.astro';
 <nav class="sticky top-0 z-10 w-full px-6 py-3 bg-white border-b border-gray-300">
   <div class="flex items-center gap-x-4">
     <div class="flex items-center flex-1 gap-x-3">
-      <IconButton>
+      <IconButton x-bind="sidebarButton" x-ref="sidebarButton">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
       </IconButton>
       <Input type="search" placeholder="Search" className="hidden sm:flex sm:w-full md:w-2/3 lg:w-1/2" leading={<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z" /></svg>}/>

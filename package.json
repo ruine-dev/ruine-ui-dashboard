@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "alpinejs": "^3.4.2",
     "astro": "^0.20.12",
     "clsx": "^1.1.1",
     "tailwindcss": "^2.2.19"

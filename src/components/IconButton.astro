@@ -1,7 +1,7 @@
 ---
 import clsx from 'clsx';
 
-const { color = 'transparent', size = 'md', className } = Astro.props;
+const { color = 'transparent', size = 'md', className, ...props } = Astro.props;
 
 const getSize = (size) => {
   const sizes = {
@@ -44,6 +44,8 @@ const getColor = (color) => {
   getSize(size),
   getColor(color),
   className
-)}>
+)}
+  {...props}
+>
   <slot />
 </button>

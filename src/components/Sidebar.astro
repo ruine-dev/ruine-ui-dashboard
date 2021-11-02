@@ -17,7 +17,8 @@ const menu = [
 ];
 ---
 
-<aside class="fixed top-0 left-0 z-10 w-64 h-full pt-5 transform -translate-x-64 border-r border-gray-300 lg:translate-x-0 bg-white/80 backdrop-filter backdrop-blur-xl">
+<div x-bind="sidebarOverlay" class="fixed top-0 left-0 z-20 w-full h-full lg:hidden bg-gray-800/80" />
+<aside x-bind="sidebarMenu" class="fixed top-0 left-0 z-20 w-64 h-full pt-5 transform bg-white border-gray-300 lg:border-r">
   <div class="text-center">
     <Logo className="text-xl px-6" />
   </div>
