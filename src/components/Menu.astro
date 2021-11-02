@@ -1,0 +1,47 @@
+---
+const { items } = Astro.props;
+const stringItems = JSON.stringify(items);
+const menuItems = stringItems.replace(/\"/g, "'");
+---
+<div x-data={`menu(${menuItems})`} x-bind="menu" class="relative inline-block">
+  <slot name="button" />
+  <div
+    x-ref="menuList"
+    x-bind="menuList"
+    x-transition
+    class="absolute right-0 w-56 mt-2 bg-white rounded-lg shadow-md"
+  >
+    <div class="text-gray-700 divide-y">
+      <template hidden x-for="(item, i) in menuItems" x-bind:key="i">
+        <div class="p-1">
+          <template hidden x-for="menu in item" x-bind:key="menu.id">
+            <div>
+              <template hidden x-if="menu.href">
+                <a
+                  x-bind="menuItem"
+                  @mouseenter="active = menu.id"
+                  x-bind:href="menu.href"
+                  class="flex items-center w-full px-3 py-2 text-left rounded-lg outline-none focus:bg-primary-600 focus:text-white"
+                >
+                  <span x-html="menu.icon"></span>
+                  <span x-text="menu.label"></span>
+                </a>
+              </template>
+              <template hidden x-if="menu.onclick">
+                <button
+                  x-bind="menuItem"
+                  @mouseenter="active = menu.id"
+                  @click="eval(menu.onclick)"
+                  class="flex items-center w-full px-3 py-2 text-left rounded-lg outline-none focus:bg-primary-600 focus:text-white"
+                >
+                  <span x-html="menu.icon"></span>
+                  <span x-text="menu.label"></span>
+                </button>
+              </template>
+            </div>
+          </template>
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
