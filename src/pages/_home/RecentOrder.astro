@@ -103,7 +103,7 @@ const statuses = {
                 <Avatar src={avatar} alt={`${buyer}'s Avatar'`} />
                 <div class="ml-3">
                   <p class="font-medium">{buyer}</p>
-                  <p class="text-xs text-gray-500">Customer</p>
+                  <p class="text-gray-500">Customer</p>
                 </div>
               </div>
             </td>
@@ -126,7 +126,7 @@ const statuses = {
         {orders.map(({ avatar, buyer, amount, date, status }) => (
           <li class="p-4">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-gray-500">{date}</span>
+              <span class="text-gray-500">{date}</span>
               <Badge color={statuses[status]}>{status}</Badge>
             </div>
             <div class="flex items-center justify-between mt-3">
@@ -134,7 +134,7 @@ const statuses = {
                 <Avatar src={avatar} alt={`${buyer}'s Avatar'`} className="hidden sm:block" />
                 <div class="sm:ml-3">
                   <p class="font-medium">{buyer}</p>
-                  <p class="text-xs text-gray-500">Customer</p>
+                  <p class="text-gray-500">Customer</p>
                 </div>
               </div>
               <span>$ {amount} USD</span>
