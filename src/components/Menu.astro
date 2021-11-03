@@ -9,33 +9,33 @@ const menuItems = stringItems.replace(/\"/g, "'");
     x-ref="menuList"
     x-bind="menuList"
     x-transition
-    class="absolute right-0 w-56 mt-2 bg-white rounded-lg shadow-md"
+    class="absolute right-0 w-56 mt-2 bg-white rounded-lg shadow-md outline-none"
   >
     <div class="text-gray-700 divide-y">
-      <template hidden x-for="(item, i) in menuItems" x-bind:key="i">
+      <template hidden x-for="(items, i) in menuItems" x-bind:key="i">
         <div class="p-1">
-          <template hidden x-for="menu in item" x-bind:key="menu.id">
+          <template hidden x-for="item in items" x-bind:key="item.index">
             <div>
-              <template hidden x-if="menu.href">
+              <template hidden x-if="item.href">
                 <a
                   x-bind="menuItem"
-                  @mouseenter="active = menu.id"
-                  x-bind:href="menu.href"
+                  @mouseenter="active = item.index"
+                  x-bind:href="item.href"
                   class="flex items-center w-full px-3 py-2 text-left rounded-lg outline-none focus:bg-primary-600 focus:text-white"
                 >
-                  <span x-html="menu.icon"></span>
-                  <span x-text="menu.label"></span>
+                  <span x-html="item.icon"></span>
+                  <span x-text="item.label"></span>
                 </a>
               </template>
-              <template hidden x-if="menu.onclick">
+              <template hidden x-if="item.onclick">
                 <button
                   x-bind="menuItem"
-                  @mouseenter="active = menu.id"
-                  @click="eval(menu.onclick)"
+                  @mouseenter="active = item.index"
+                  @click="eval(item.onclick)"
                   class="flex items-center w-full px-3 py-2 text-left rounded-lg outline-none focus:bg-primary-600 focus:text-white"
                 >
-                  <span x-html="menu.icon"></span>
-                  <span x-text="menu.label"></span>
+                  <span x-html="item.icon"></span>
+                  <span x-text="item.label"></span>
                 </button>
               </template>
             </div>

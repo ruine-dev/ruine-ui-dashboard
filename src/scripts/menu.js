@@ -1,9 +1,9 @@
-export default function dropdown(menuItems = []) {
+export default function menu(menuItems = []) {
   return {
     id: Math.random().toString(36).substr(2, 9),
     open: false,
     active: null,
-    menuItems,
+    menuItems: addIndexToEachMenuItem(menuItems),
     length: menuItems.flat().length,
 
     init() {
@@ -17,17 +17,18 @@ export default function dropdown(menuItems = []) {
           }
         });
 
-        document.addEventListener('keydown', event => {
-          const isArrowUp = event.key === 'ArrowUp';
-          const isArrowDown = event.key === 'ArrowDown';
-
-          if (this.open && this.active === null && (isArrowUp || isArrowDown)) {
-            event.preventDefault();
-            if (isArrowUp) {
+        this.$refs.menuList.addEventListener('keydown', event => {
+          if (this.open && this.active === null) {
+            if (event.key === 'ArrowUp') {
+              event.preventDefault();
               this.active = this.length;
             }
-            if (isArrowDown) {
+            if (event.key === 'ArrowDown') {
+              event.preventDefault();
               this.active = 1;
+            }
+            if (event.key === 'Escape') {
+              this.close();
             }
           }
         });
@@ -81,6 +82,19 @@ export default function dropdown(menuItems = []) {
     menuButton: {
       ['@click']() {
         this.toggle();
+        this.$nextTick(() => {
+          this.$refs.menuList.focus();
+        });
+      },
+      ['@keydown.space']() {
+        this.$nextTick(() => {
+          this.$refs.menuList.querySelector('[role=menuitem]').focus();
+        });
+      },
+      ['@keydown.enter']() {
+        this.$nextTick(() => {
+          this.$refs.menuList.querySelector('[role=menuitem]').focus();
+        });
       },
       [':id']() {
         return `menu-button-${this.id}`;
@@ -100,6 +114,9 @@ export default function dropdown(menuItems = []) {
       ['x-show']() {
         return this.open;
       },
+      ['@keydown.tab'](event) {
+        event.preventDefault();
+      },
       [':role']() {
         return 'menu';
       },
@@ -108,6 +125,9 @@ export default function dropdown(menuItems = []) {
       },
       [':aria-labelledby']() {
         return `menu-button-${this.id}`;
+      },
+      [':tabindex']() {
+        return 0;
       },
     },
 
@@ -137,3 +157,27 @@ export default function dropdown(menuItems = []) {
     },
   };
 }
+
+const addIndexToEachMenuItem = menuItems => {
+  let index = 0;
+
+  const flatMenuItemsWithArrayIndex = menuItems.flatMap((menuItem, arrIndex) => {
+    return menuItem.map(item => {
+      index++;
+      return {
+        ...item,
+        arrIndex,
+        index,
+      };
+    });
+  });
+
+  return flatMenuItemsWithArrayIndex.reduce((acc, item) => {
+    const { arrIndex } = item;
+    if (!acc[arrIndex]) {
+      acc[arrIndex] = [];
+    }
+    acc[arrIndex].push(item);
+    return acc;
+  }, []);
+};
