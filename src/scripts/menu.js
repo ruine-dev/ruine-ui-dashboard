@@ -9,27 +9,11 @@ export default function menu(menuItems = []) {
     init() {
       this.$nextTick(() => {
         const menuItems = this.$refs.menuList.querySelectorAll('[role=menuitem]');
-        this.$watch('active', (value, oldValue) => {
+        this.$watch('active', value => {
           if (value !== null) {
             menuItems[value - 1].focus();
           } else {
-            menuItems[oldValue - 1].blur();
-          }
-        });
-
-        this.$refs.menuList.addEventListener('keydown', event => {
-          if (this.open && this.active === null) {
-            if (event.key === 'ArrowUp') {
-              event.preventDefault();
-              this.active = this.length;
-            }
-            if (event.key === 'ArrowDown') {
-              event.preventDefault();
-              this.active = 1;
-            }
-            if (event.key === 'Escape') {
-              this.close();
-            }
+            this.$refs.menuList.focus();
           }
         });
       });
@@ -43,7 +27,9 @@ export default function menu(menuItems = []) {
     toggle() {
       if (this.open) {
         this.active = null;
-        this.$refs.menuButton.focus();
+        this.$nextTick(() => {
+          this.$refs.menuButton.focus();
+        });
       }
 
       this.open = !this.open;
@@ -114,8 +100,15 @@ export default function menu(menuItems = []) {
       ['x-show']() {
         return this.open;
       },
-      ['@keydown.tab'](event) {
-        event.preventDefault();
+      ['@keydown.tab.prevent']() {},
+      ['@keydown.escape']() {
+        this.toggle();
+      },
+      ['@keydown.arrow-up.prevent']() {
+        this.focusPreviousMenu();
+      },
+      ['@keydown.arrow-down.prevent']() {
+        this.focusNextMenu();
       },
       [':role']() {
         return 'menu';
@@ -133,13 +126,13 @@ export default function menu(menuItems = []) {
 
     menuItem: {
       ['@keydown.tab.prevent']() {},
-      ['@keydown.escape']() {
+      ['@keydown.escape.stop']() {
         this.toggle();
       },
-      ['@keydown.arrow-up.prevent']() {
+      ['@keydown.arrow-up.prevent.stop']() {
         this.focusPreviousMenu();
       },
-      ['@keydown.arrow-down.prevent']() {
+      ['@keydown.arrow-down.prevent.stop']() {
         this.focusNextMenu();
       },
       ['@mouseleave']() {
