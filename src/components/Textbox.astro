@@ -1,0 +1,12 @@
+---
+import clsx from 'clsx';
+import Input from './Input';
+import Label from './Label';
+
+const { name, id, label, className, ...props } = Astro.props;
+---
+
+<div class={clsx('flex flex-col items-start space-y-1', className)}>
+  <Label htmlFor={id || name}>{label}</Label>
+  <Input name={name} id={id || name} className="w-full" {...props} />
+</div>

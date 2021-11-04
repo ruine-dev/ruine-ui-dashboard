@@ -1,0 +1,27 @@
+---
+import BaseHead from '$components/BaseHead.astro';
+import Logo from '$components/Logo.astro';
+
+const { title, background } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title}/>
+  </head>
+  <body class="text-sm antialiased lg:overflow-y-auto">
+    <div class="grid w-full h-screen md:grid-cols-[80%,20%] lg:grid-cols-2 2xl:grid-cols-[40rem,1fr]">
+      <div class="flex flex-col px-24 pt-8 pb-6 bg-white">
+        <Logo className="text-2xl md:text-left text-center"/>
+        <h1 class="mt-12 text-2xl font-bold text-center text-gray-700 md:text-left">{title}</h1>
+        <main class="w-full mb-16 xl:w-4/5">
+          <slot />
+        </main>
+        <footer class="mt-auto">
+          <p class="text-center text-gray-500 md:text-left">© 2021 all rights reserved</p>
+        </footer>
+      </div>
+      <img src={background} alt="" class="hidden object-cover h-full md:block" />
+    </div>
+    <script type="module" src="{Astro.resolve('../scripts/main.js')}"></script>
+  </body>
+</html>

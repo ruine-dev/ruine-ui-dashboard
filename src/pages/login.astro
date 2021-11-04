@@ -1,0 +1,43 @@
+---
+import AuthLayout from '$layouts/AuthLayout.astro';
+import bg from '$images/bg-login.jpg';
+import Button from '$components/Button.astro';
+import Checkbox from '$components/Checkbox.astro';
+import Link from '$components/Link.astro';
+import Textbox from '$components/Textbox.astro';
+---
+
+<AuthLayout title="Login" background={bg}>
+  <form action="/" method="POST" class="mt-8 space-y-5">
+    <Textbox
+      label="Email"
+      name="email"
+      type="email"
+      placeholder="Enter your email"
+      className="w-full"
+    />
+    <Textbox
+      label="Password"
+      name="password"
+      type="password"
+      placeholder="Enter your password"
+      className="w-full"
+    />
+    <div class="flex items-center justify-between">
+      <Checkbox
+        label="Remember me"
+        name="remember"
+      />
+      <Link href="/forget-password">
+        Forget password?
+      </Link>
+    </div>
+    <Button type="submit" color="primary" className="w-full justify-center">Login</Button>
+  </form>
+  <p class="mt-8 text-center text-gray-500 md:text-left">
+    Not registered yet?
+    <Link href="/register">
+      Create an account
+    </Link>
+  </p>
+</AuthLayout>

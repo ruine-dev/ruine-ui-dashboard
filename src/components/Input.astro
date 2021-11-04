@@ -1,9 +1,13 @@
 ---
 import clsx from 'clsx';
 
-const {type, placeholder, className, leading, trailing} = Astro.props;
+const { name, type, placeholder, id, className, leading, trailing } = Astro.props;
 const getPadding = () => {
-  return clsx('py-2', {'pl-10 pr-3': leading, 'pl-3 pr-10': trailing});
+  return clsx('py-2', {
+    'pl-10 pr-3': leading,
+    'pl-3 pr-10': trailing,
+    'px-3': !leading && !trailing
+  });
 }
 ---
 
@@ -16,7 +20,7 @@ const getPadding = () => {
       {leading}
     </div>
   )}
-  <input type={type} placeholder={placeholder} class={clsx(
+  <input name={name} id={id || name} type={type} placeholder={placeholder} class={clsx(
     'text-gray-700 placeholder-gray-400 outline-none selection:bg-primary-600 selection:text-white disabled:bg-gray-200 flex-1',
     getPadding()
   )} />
