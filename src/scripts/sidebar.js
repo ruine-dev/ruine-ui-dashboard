@@ -1,20 +1,39 @@
-export default function sidebar() {
+export default function sidebar(
+  options = { noScroll: false, noScrollClass: '', noScrollBreakpoint: 0 }
+) {
+  const { noScroll, noScrollClass, noScrollBreakpoint } = options;
+  const isLowerThanScrollBreakpoint = () => window.innerWidth < noScrollBreakpoint;
+
   return {
     open: true,
+    trap: false,
 
     init() {
-      document.addEventListener('keydown', event => {
-        if (this.open && event.key === 'Escape') {
-          if (window.innerWidth < 1024) {
-            this.close();
-          }
+      this.$nextTick(() => {
+        if (isLowerThanScrollBreakpoint()) {
+          this.open = false;
         }
+        this.$watch('open', () => {
+          if (this.open) {
+            document.documentElement.classList.add(noScrollClass);
+          } else {
+            document.documentElement.classList.remove(noScrollClass);
+          }
+        });
       });
     },
 
     toggle() {
       if (!this.open) {
-        this.$refs.sidebarButton.blur();
+        this.$nextTick(() => {
+          if (isLowerThanScrollBreakpoint()) {
+            this.trap = true;
+          }
+          // TODO: remove this hack when alpine fixes the bug
+          setTimeout(() => {
+            this.$refs.sidebarMenu.querySelector('a, button').focus();
+          }, 50);
+        });
       }
 
       this.open = !this.open;
@@ -22,13 +41,8 @@ export default function sidebar() {
 
     close() {
       this.open = false;
+      this.trap = false;
       this.$refs.sidebarButton.focus();
-    },
-
-    body: {
-      [':class']() {
-        return { 'overflow-y-hidden': this.open };
-      },
     },
 
     sidebarButton: {
@@ -38,11 +52,17 @@ export default function sidebar() {
       [':aria-controls']() {
         return 'sidebar';
       },
+      [':aria-expanded']() {
+        return this.open;
+      },
     },
 
     sidebarMenu: {
       ['x-show']() {
         return this.open;
+      },
+      [noScroll ? 'x-trap.noscroll' : 'x-trap']() {
+        return this.trap;
       },
       ['x-transition:enter']() {
         return 'transition linear duration-300';
@@ -62,11 +82,20 @@ export default function sidebar() {
       ['x-transition:leave-end']() {
         return '-translate-x-64';
       },
+      ['@keydown.escape.document']() {
+        if (isLowerThanScrollBreakpoint()) {
+          this.close();
+        }
+      },
+      ['@resize.window']() {
+        if (isLowerThanScrollBreakpoint()) {
+          this.trap = true;
+        } else {
+          this.trap = false;
+        }
+      },
       [':id']() {
         return 'sidebar';
-      },
-      [':aria-expanded']() {
-        return this.open;
       },
     },
 

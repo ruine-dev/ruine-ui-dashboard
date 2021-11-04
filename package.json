@@ -13,5 +13,8 @@
     "astro": "^0.20.12",
     "clsx": "^1.1.1",
     "tailwindcss": "^2.2.19"
+  },
+  "dependencies": {
+    "@alpinejs/trap": "^3.5.0"
   }
 }

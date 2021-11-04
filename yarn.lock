@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@alpinejs/trap@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@alpinejs/trap/-/trap-3.5.0.tgz#038ca6406a9270f10f14b49ecf3734a50d416e7a"
+  integrity sha512-+dF32OmOM8PyaWaZqm7M1/tHO6fV88HrZteDRnI2uvi0mAOdalaUQqEzRA2QUa4Usj3n9HftOqhRNHoOOFSbpQ==
+  dependencies:
+    focus-trap "^6.6.1"
+
 "@astrojs/language-server@^0.7.16":
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/@astrojs/language-server/-/language-server-0.7.19.tgz#28475a8b6ce2d96362d07a69ba2fed893b68dff4"
@@ -2162,6 +2169,13 @@ find-up@^5.0.0:
   dependencies:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
+
+focus-trap@^6.6.1:
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.7.1.tgz#d474f86dbaf3c7fbf0d53cf0b12295f4f4068d10"
+  integrity sha512-a6czHbT9twVpy2RpkWQA9vIgwQgB9Nx1PIxNNUxQT4nugG/3QibwxO+tWTh9i+zSY2SFiX4pnYhTaFaQF/6ZAg==
+  dependencies:
+    tabbable "^5.2.1"
 
 forever-agent@~0.6.1:
   version "0.6.1"
@@ -5381,6 +5395,11 @@ svelte@^3.35.0:
   version "3.44.0"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.44.0.tgz#e6176cb3ad93846ddb4140e93f43098136b23f3b"
   integrity sha512-zWACSJBSncGiDvFfYOMFGNV5zDLOlyhftmO5yOZ0lEtQMptpElaRtl39MWz1+lYCpwUq4F3Q2lTzI9TrTL+eMA==
+
+tabbable@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.2.1.tgz#e3fda7367ddbb172dcda9f871c0fdb36d1c4cd9c"
+  integrity sha512-40pEZ2mhjaZzK0BnI+QGNjJO8UYx9pP5v7BGe17SORTO0OEuuaAwQTkAp8whcZvqon44wKFOikD+Al11K3JICQ==
 
 tailwindcss@^2.2.19:
   version "2.2.19"
