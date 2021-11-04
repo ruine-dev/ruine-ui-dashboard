@@ -12,11 +12,12 @@ https://ruine-dashboard.pages.dev/
 - [x] Dashboard page
 - [x] Make sidebar and dropdown interactive (Using alpine)
 - [ ] Popover for notification (Using alpine)
+- [ ] Add sidebar submenu (Using alpine)
 - [x] Blank page
 - [ ] User list page
 - [ ] User details page
 - [ ] Profile page
-- [ ] Login page
+- [x] Login page
 - [ ] Register page
 - [ ] Forgot password page
 - [ ] 404 page
