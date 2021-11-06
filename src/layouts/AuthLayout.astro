@@ -1,21 +1,24 @@
 ---
+import clsx from 'clsx';
 import BaseHead from '$components/BaseHead.astro';
 import Logo from '$components/Logo.astro';
 
-const { title, background } = Astro.props;
+const { title, background, right = false } = Astro.props;
 ---
 <html lang="en">
   <head>
     <BaseHead title={title}/>
   </head>
   <body style={`background-image: url('${background}')`} class="text-sm antialiased font-medium bg-cover lg:overflow-y-auto">
-    <div class="w-full h-full min-h-screen md:w-4/5 lg:w-1/2 2xl:w-[40rem] flex flex-col px-24 pt-8 pb-6 bg-white">
-      <Logo className="text-2xl md:text-left text-center"/>
-      <h1 class="mt-12 text-2xl font-bold text-center text-gray-700 md:text-left">{title}</h1>
-      <main class="w-full mb-16 xl:w-4/5">
-        <slot />
-      </main>
-      <footer class="mt-auto">
+    <div class={clsx('flex flex-col w-full h-full min-h-screen px-24 pt-8 pb-6 bg-white md:w-4/5 lg:w-1/2', {'ml-auto': right})}>
+      <div class="w-full h-full mx-auto xl:w-4/5 2xl:w-[32rem] flex flex-col items-center md:items-start">
+        <Logo className="text-2xl"/>
+        <h1 class="mt-12 text-2xl font-bold text-gray-700">{title}</h1>
+        <main class="w-full mb-16">
+          <slot />
+        </main>
+      </div>
+      <footer class="w-full h-full mx-auto mt-auto xl:w-4/5 2xl:w-[32rem]">
         <p class="text-center text-gray-500 md:text-left">© 2021 all rights reserved</p>
       </footer>
     </div>
