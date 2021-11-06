@@ -23,8 +23,8 @@ const { className } = Astro.props;
       {products.map(({ name, price, sold, rating, image }) => (
         <li class="p-3">
           <div class="flex items-center">
-            <Avatar src={`${image}/60x60`} alt={`${name}'s preview'`} shape="square" />
-            <div class="flex-1 w-full ml-3">
+            <Avatar src={`${image}/60x60`} alt={`${name}'s preview'`} size="lg" shape="square" />
+            <div class="flex-1 w-full ml-3 space-y-1">
               <div class="flex justify-between">
                 <h3 class="font-semibold text-gray-700 truncate">{name}</h3>
                 <span class="text-gray-700">$ {price} USD</span>
