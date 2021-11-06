@@ -1,12 +1,11 @@
 ---
 import AuthLayout from '$layouts/AuthLayout.astro';
-import bg from '$images/bg-register.jpg';
 import Button from '$components/Button.astro';
 import Link from '$components/Link.astro';
 import Textbox from '$components/Textbox.astro';
 ---
 
-<AuthLayout title="Register" background={bg}>
+<AuthLayout title="Register" background="/images/bg-2.jpg">
   <form action="/auth/login" class="mt-8 space-y-5">
     <Textbox
       label="Name"
