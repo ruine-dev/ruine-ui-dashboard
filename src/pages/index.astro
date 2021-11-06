@@ -2,11 +2,15 @@
 import AppLayout from '$layouts/AppLayout.astro';
 import Overview from './_home/Overview.astro';
 import RecentOrder from './_home/RecentOrder.astro';
+import PopularProduct from './_home/PopularProduct.astro';
 ---
 
 <AppLayout title="Dashboard">
-  <div class="space-y-8">
+  <div class="grid gap-y-8">
     <Overview />
-    <RecentOrder />
+    <div class="grid gap-8 xl:grid-cols-3">
+      <RecentOrder className="xl:col-span-2"/>
+      <PopularProduct />
+    </div>
   </div>
 </AppLayout>

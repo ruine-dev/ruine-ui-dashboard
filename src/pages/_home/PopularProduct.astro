@@ -1,0 +1,47 @@
+---
+import Avatar from '$components/Avatar';
+import Card from '$components/Card';
+import DashboardSection from '$components/DashboardSection';
+import DashboardSectionTitle from '$components/DashboardSectionTitle';
+import { products } from '$dummies/products';
+
+const { className } = Astro.props;
+---
+
+<DashboardSection className={className}>
+  <div class="flex items-center justify-between">
+    <DashboardSectionTitle>Popular Products</DashboardSectionTitle>
+    <label for="popular_period" class="sr-only">Popular period</label>
+    <select name="popular_period" id="popular_period">
+      <option value="monthly">Monthly</option>
+      <option value="weekly">Weekly</option>
+      <option value="daily">Daily</option>
+    </select>
+  </div>
+  <Card>
+    <ul class="divide-y">
+      {products.map(({ name, price, sold, rating, image }) => (
+        <li class="p-3">
+          <div class="flex items-center">
+            <Avatar src={`${image}/60x60`} alt={`${name}'s preview'`} shape="square" />
+            <div class="flex-1 w-full ml-3">
+              <div class="flex justify-between">
+                <h3 class="font-semibold text-gray-700 truncate">{name}</h3>
+                <span class="text-gray-700">$ {price} USD</span>
+              </div>
+              <div class="flex justify-between">
+                <p class="text-gray-500">
+                  {sold} units sold
+                </p>
+                <p class="flex items-center justify-end text-gray-500">
+                  {rating} / 5
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1 text-yellow-500" viewBox="0 0 24 24" fill="rgb(245, 158, 11)" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734c.145.38.514.633.926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322 1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6 14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633l2.07-5.734z"/></svg>
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </Card>
+</DashboardSection>

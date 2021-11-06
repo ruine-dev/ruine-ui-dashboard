@@ -1,0 +1,8 @@
+---
+import clsx from 'clsx';
+const { className } = Astro.props;
+---
+
+<section class={clsx('space-y-4', className)}>
+  <slot />
+</section>

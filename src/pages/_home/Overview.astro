@@ -1,5 +1,9 @@
 ---
+import DashboardSection from '$components/DashboardSection.astro';
+import DashboardSectionTitle from '$components/DashboardSectionTitle.astro';
 import StatsCard from '$components/StatsCard.astro';
+
+const { className } = Astro.props;
 
 const stats = [
   {
@@ -25,11 +29,11 @@ const stats = [
 ];
 ---
 
-<section>
-  <h2 class="text-lg font-bold text-gray-700">Overview</h2>
+<DashboardSection className={className}>
+  <DashboardSectionTitle>Overview</DashboardSectionTitle>
   <div class="grid gap-4 mt-4 sm:grid-cols-2 xl:grid-cols-4">
   {stats.map(({label, value, icon}) => (
     <StatsCard label={label} value={value} icon={icon} />
   ))}
   </div>
-</section>
+</DashboardSection>

@@ -1,6 +1,12 @@
 ---
 import clsx from 'clsx';
-const { src, alt, className } = Astro.props;
+const { src, alt, shape = 'circle', className } = Astro.props;
 ---
 
-<img src={src} alt={alt} class={clsx('transition object-cover w-10 h-10 rounded-full group-focus:ring-2 ring-primary-600 ring-offset-2', className)} />
+<img src={src} alt={alt} class={clsx(
+  'transition object-cover w-10 h-10 group-focus:ring-2 ring-primary-600 ring-offset-2',
+  {
+    'rounded-full': shape === 'circle',
+    'rounded-lg': shape === 'square',
+  },
+  className)} />
