@@ -4,9 +4,11 @@ import Button from '$components/Button.astro';
 ---
 
 <AuthLayout title="Verify your email" background="https://source.unsplash.com/cPccYbPrF-A" right>
-  <p class="mt-8 text-gray-600">
-    Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
-  </p>
+  <div class="mt-8 space-y-1 text-gray-600">
+    <p>Thanks for signing up!</p>
+    <p>Before getting started, could you verify your email address by clicking on the link we just emailed to you?</p>
+    <p>If you didn't receive the email, we will gladly send you another.</p>
+  </div>
   <form action="#" class="mt-6 space-y-5">
     <Button type="submit" color="primary" className="w-full justify-center">Resend Email Verification</Button>
   </form>
