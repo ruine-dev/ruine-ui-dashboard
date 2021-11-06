@@ -1,0 +1,13 @@
+---
+import AuthLayout from '$layouts/AuthLayout.astro';
+import Button from '$components/Button.astro';
+---
+
+<AuthLayout title="Verify your email" background="/images/bg-2.jpg" right>
+  <p class="mt-8 text-gray-600">
+    Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+  </p>
+  <form action="#" class="mt-6 space-y-5">
+    <Button type="submit" color="primary" className="w-full justify-center">Resend Email Verification</Button>
+  </form>
+</AuthLayout>
