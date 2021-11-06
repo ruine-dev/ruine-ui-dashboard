@@ -4,6 +4,6 @@ import clsx from 'clsx';
 const { className } = Astro.props;
 ---
 
-<div class={clsx('bg-white shadow rounded-2xl', className)}>
+<div class={clsx('bg-white border border-gray-300 rounded-xl', className)}>
   <slot />
 </div>

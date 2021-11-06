@@ -80,7 +80,7 @@ const statuses = {
     <div class="hidden md:block">
       <table class="min-w-full">
         <thead>
-          <tr class="text-xs tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
+          <tr class="text-xs tracking-wider text-left text-gray-500 uppercase border-b border-gray-300 bg-gray-50">
             <th scope="col" class="px-4 py-4">
               Buyer
             </th>
@@ -95,7 +95,7 @@ const statuses = {
             </th>
           </tr>
         </thead>
-        <tbody class="text-gray-700 divide-y">
+        <tbody class="text-gray-700 divide-y divide-gray-300">
         {orders.map(({ avatar, buyer, amount, status, date }) => (
           <tr>
             <td class="w-full px-4 py-4 whitespace-nowrap">
