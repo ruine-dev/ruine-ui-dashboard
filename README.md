@@ -18,6 +18,7 @@ https://ruine-dashboard.pages.dev/
 - [ ] User details page
 - [ ] Profile page
 - [x] Login page
-- [ ] Register page
-- [ ] Forgot password page
+- [x] Register page
+- [ ] Email confirmation page
+- [x] Forgot password page
 - [ ] 404 page
