@@ -10,7 +10,7 @@ const { title, background, right = false } = Astro.props;
     <BaseHead title={title}/>
   </head>
   <body style={`background-image: url('${background}')`} class="text-sm antialiased font-medium bg-cover lg:overflow-y-auto">
-    <div class={clsx('flex flex-col w-full h-full min-h-screen px-24 pt-8 pb-6 bg-white md:w-4/5 lg:w-1/2', {'ml-auto': right})}>
+    <div class={clsx('flex flex-col w-full h-full min-h-screen px-6 sm:px-24 pt-8 pb-6 bg-white md:w-4/5 lg:w-1/2', {'ml-auto': right})}>
       <div class="w-full h-full mx-auto xl:w-4/5 2xl:w-[32rem] flex flex-col items-center md:items-start">
         <Logo className="text-2xl"/>
         <h1 class="mt-12 text-2xl font-bold text-gray-700">{title}</h1>
