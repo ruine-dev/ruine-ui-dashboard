@@ -81,16 +81,16 @@ const statuses = {
       <table class="min-w-full">
         <thead>
           <tr class="text-xs tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
-            <th class="px-4 py-4">
+            <th scope="col" class="px-4 py-4">
               Buyer
             </th>
-            <th class="px-4 py-4 text-right">
+            <th scope="col" class="px-4 py-4 text-right">
               Amount
             </th>
-            <th class="px-4 py-4">
+            <th scope="col" class="px-4 py-4">
               Status
             </th>
-            <th class="px-4 py-4 text-right">
+            <th scope="col" class="px-4 py-4 text-right">
               Date
             </th>
           </tr>
@@ -102,7 +102,7 @@ const statuses = {
               <div class="flex items-center">
                 <Avatar src={avatar} alt={`${buyer}'s Avatar'`} />
                 <div class="ml-3">
-                  <p class="font-medium">{buyer}</p>
+                  <p class="font-semibold">{buyer}</p>
                   <p class="text-gray-500">Customer</p>
                 </div>
               </div>
@@ -133,7 +133,7 @@ const statuses = {
               <div class="flex items-center">
                 <Avatar src={avatar} alt={`${buyer}'s Avatar'`} className="hidden sm:block" />
                 <div class="sm:ml-3">
-                  <p class="font-medium">{buyer}</p>
+                  <p class="font-semibold">{buyer}</p>
                   <p class="text-gray-500">Customer</p>
                 </div>
               </div>
