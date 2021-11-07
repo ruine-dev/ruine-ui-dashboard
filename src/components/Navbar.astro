@@ -87,7 +87,7 @@ const userMenu = [
           x-bind="popoverPanel"
           x-cloak
           x-transition
-          class="absolute right-0 h-56 p-1 mt-3 overflow-y-auto bg-white rounded-lg shadow outline-none w-72"
+          class="fixed right-0 w-full h-full p-1 mt-4 overflow-y-auto bg-white shadow outline-none sm:mt-3 sm:rounded-lg sm:h-56 sm:absolute sm:w-72"
         >
           {notifications.map(item => (
             <a href="#" class="flex items-center p-3 rounded-lg outline-none focus:ring-2 focus:z-10 focus:relative ring-primary-600 hover:bg-gray-50">
