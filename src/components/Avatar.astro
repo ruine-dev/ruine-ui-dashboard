@@ -2,6 +2,11 @@
 import clsx from 'clsx';
 const { src, alt, size = 'md', shape = 'circle', className } = Astro.props;
 
+const shapes = {
+  circle: 'rounded-full',
+  square: 'rounded-lg',
+};
+
 const sizes = {
   'xs': 'w-6 h-6',
   'sm': 'w-8 h-8',
@@ -9,13 +14,18 @@ const sizes = {
   'lg': 'w-12 h-12',
   'xl': 'w-14 h-14',
 };
+
+const sizeValues = {
+  'xs': '1.5rem',
+  'sm': '2rem',
+  'md': '2.5rem',
+  'lg': '3rem',
+  'xl': '3.5rem',
+}
 ---
 
-<img src={src} alt={alt} class={clsx(
+<img src={src} alt={alt} width={sizeValues[size]} height={sizeValues[size]} class={clsx(
   'transition object-cover group-focus:ring-2 ring-primary-600 ring-offset-2',
-  {
-    'rounded-full': shape === 'circle',
-    'rounded-lg': shape === 'square',
-  },
+  shapes[shape],
   sizes[size],
   className)} />
