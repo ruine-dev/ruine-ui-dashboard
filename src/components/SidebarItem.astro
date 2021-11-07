@@ -17,7 +17,7 @@ const className = clsx(baseClassName, {
   <div x-data="sidebarSub">
     <button x-bind="sidebarSubButton" class={clsx('justify-between items-center', className)}>
       <slot />
-      <svg xmlns="http://www.w3.org/2000/svg" x-bind="sidebarSubButtonIcon" class="w-4 h-4 transition-transform transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l8 8 8-8"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" x-bind:class={`{ 'rotate-180': open }`} class="w-4 h-4 transition-transform transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l8 8 8-8"/></svg>
     </button>
     <ul
       x-bind="sidebarSubMenu"

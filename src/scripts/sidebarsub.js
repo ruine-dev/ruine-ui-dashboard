@@ -19,12 +19,6 @@ export default function sidebarSub() {
       },
     },
 
-    sidebarSubButtonIcon: {
-      [':class']() {
-        return { 'rotate-180': this.open };
-      },
-    },
-
     sidebarSubMenu: {
       ['x-show']() {
         return this.open;
