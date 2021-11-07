@@ -12,19 +12,19 @@ const { className } = Astro.props;
   <div class="flex items-center justify-between">
     <DashboardSectionTitle>Popular Products</DashboardSectionTitle>
     <label for="popular_period" class="sr-only">Popular period</label>
-    <select name="popular_period" id="popular_period">
+    <select name="popular_period" id="popular_period" class="font-medium">
       <option value="monthly">Monthly</option>
       <option value="weekly">Weekly</option>
       <option value="daily">Daily</option>
     </select>
   </div>
-  <Card>
+  <Card className="-mx-6 sm:mx-0">
     <ul class="divide-y divide-gray-300">
       {products.map(({ name, price, sold, rating, image }) => (
-        <li class="p-3">
+        <li class="px-6 py-3 sm:p-3">
           <div class="flex items-center">
-            <Avatar src={`${image}/60x60`} alt={`${name}'s preview'`} size="lg" shape="square" />
-            <div class="flex-1 w-full ml-3 space-y-1">
+            <Avatar src={`${image}/60x60`} alt={`${name}'s preview'`} size="lg" shape="square" className="hidden sm:block" />
+            <div class="flex-1 w-full space-y-1 sm:ml-3">
               <div class="flex justify-between">
                 <h3 class="font-semibold text-gray-700 truncate">{name}</h3>
                 <span class="text-gray-700">$ {price} USD</span>

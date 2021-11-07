@@ -6,7 +6,7 @@ import IconBox from './IconBox.astro';
 const { label, value, icon, className } = Astro.props;
 ---
 
-<Card className={clsx('flex items-center p-4 space-x-4', className)}>
+<Card className={clsx('flex items-center p-4 space-x-4', className)} rounded>
   <IconBox>
     {icon}
   </IconBox>

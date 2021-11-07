@@ -1,9 +1,9 @@
 ---
 import clsx from 'clsx';
 
-const { className } = Astro.props;
+const { className, rounded } = Astro.props;
 ---
 
-<div class={clsx('bg-white border border-gray-300 rounded-xl', className)}>
+<div class={clsx('bg-white border border-gray-300', {'sm:rounded-xl': !rounded, 'rounded-xl': rounded}, className)}>
   <slot />
 </div>

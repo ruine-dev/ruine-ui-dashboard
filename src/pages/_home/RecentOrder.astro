@@ -20,7 +20,7 @@ const shownOrders = orders.slice(0, 5);
     <DashboardSectionTitle>Recent Orders</DashboardSectionTitle>
     <Link href="#">View all</Link>
   </div>
-  <Card className="overflow-hidden">
+  <Card className="overflow-hidden -mx-6 sm:mx-0">
     <table class="hidden min-w-full md:block">
       <THead>
         <tr>
@@ -66,7 +66,7 @@ const shownOrders = orders.slice(0, 5);
     <div class="block md:hidden">
       <ul class="text-gray-700 divide-y divide-gray-300">
         {shownOrders.map(({ buyer: {avatar, name, email}, amount, date, status }) => (
-          <li class="p-4">
+          <li class="px-6 py-4 sm:p-4">
             <div class="flex items-center justify-between">
               <span class="text-gray-500">{date}</span>
               <Badge color={statuses[status]}>{status}</Badge>
