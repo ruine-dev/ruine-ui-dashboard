@@ -63,6 +63,12 @@ export default function menu(menuItems = []) {
       ['@click.outside']() {
         this.close();
       },
+      ['@keydown.escape']() {
+        this.close();
+        this.$nextTick(() => {
+          this.$refs.menuButton.focus();
+        });
+      },
     },
 
     menuButton: {
@@ -101,9 +107,6 @@ export default function menu(menuItems = []) {
         return this.open;
       },
       ['@keydown.tab.prevent']() {},
-      ['@keydown.escape']() {
-        this.toggle();
-      },
       ['@keydown.arrow-up.prevent']() {
         this.focusPreviousMenu();
       },
@@ -126,9 +129,6 @@ export default function menu(menuItems = []) {
 
     menuItem: {
       ['@keydown.tab.prevent']() {},
-      ['@keydown.escape.stop']() {
-        this.toggle();
-      },
       ['@keydown.arrow-up.prevent.stop']() {
         this.focusPreviousMenu();
       },

@@ -4,12 +4,12 @@ const stringItems = JSON.stringify(items);
 const menuItems = stringItems.replace(/\"/g, "'");
 ---
 <div x-data={`menu(${menuItems})`} x-bind="menu" class="relative inline-block">
-  <slot name="button" />
+  <slot />
   <div
     x-ref="menuList"
     x-bind="menuList"
     x-transition
-    class="absolute right-0 w-56 mt-2 bg-white rounded-lg shadow-md outline-none"
+    class="absolute right-0 w-56 mt-2 bg-white rounded-lg shadow outline-none"
   >
     <div class="text-gray-700 divide-y">
       <template hidden x-for="(items, i) in menuItems" x-bind:key="i">
