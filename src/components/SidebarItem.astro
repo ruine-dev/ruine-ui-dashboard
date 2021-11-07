@@ -1,19 +1,49 @@
 ---
 import clsx from 'clsx';
 
-const { href = '#' } = Astro.props;
+const { href = '#', items = [] } = Astro.props;
 const { pathname } = Astro.request.canonicalURL;
 const isActive = href === (pathname.length > 1 ? pathname.slice(0, -1) : '/');
+const baseClassName = 'transition w-full flex font-semibold block rounded-lg py-2 px-3 -ml-3 outline-none focus:ring-2 ring-primary-600';
+const inactiveClass = 'hover:bg-primary-50 hover:text-primary-600';
+const className = clsx(baseClassName, {
+  [inactiveClass]: !isActive,
+  'bg-primary-100 text-primary-800': isActive,
+});
 ---
 
 <li class="mt-1">
+{items.length > 0 ? (
+  <div x-data="sidebarSub">
+    <button x-bind="sidebarSubButton" class={clsx('justify-between items-center', className)}>
+      <slot />
+      <svg xmlns="http://www.w3.org/2000/svg" x-bind="sidebarSubButtonIcon" class="w-4 h-4 transition-transform transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l8 8 8-8"/></svg>
+    </button>
+    <ul
+      x-bind="sidebarSubMenu"
+      x-transition:enter="transition-all ease-in-out duration-300"
+      x-transition:enter-start="max-h-0"
+      x-transition:enter-end="max-h-48"
+      x-transition:leave="transition-all ease-in-out duration-300"
+      x-transition:leave-start="max-h-48"
+      x-transition:leave-end="max-h-0"
+      class="pb-1 pl-4 -ml-4 overflow-y-hidden">
+      {items.map(({ label, href }) => (
+        <li class="mt-1">
+          <a href={href} class={clsx(baseClassName, inactiveClass, 'items-center')}>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-1.5 h-1.5 ml-1.5 mr-4" viewBox="0 0 24 24" fill="currentColor" stroke-width="2"><circle cx="12" cy="12" r="11"/></svg>
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+) : (
   <a
     href={href}
-    class={clsx('block rounded-lg py-2 px-3 -ml-3 outline-none focus:ring-2 ring-primary-600', {
-      'hover:bg-primary-50 hover:text-primary-600': !isActive,
-      'bg-primary-100 text-primary-800': isActive,
-    })}
+    class={className}
   >
     <slot />
   </a>
+)}
 </li>
