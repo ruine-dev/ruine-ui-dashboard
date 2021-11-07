@@ -1,0 +1,8 @@
+---
+import clsx from 'clsx';
+
+const { className } = Astro.props;
+---
+<td class={clsx('p-4 whitespace-nowrap', className)}>
+  <slot />
+</td>

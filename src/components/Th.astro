@@ -1,0 +1,6 @@
+---
+import clsx from 'clsx';
+
+const { className } = Astro.props;
+---
+<th scope="col" class={clsx('p-4', className)}><slot /></th>

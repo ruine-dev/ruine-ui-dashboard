@@ -5,6 +5,10 @@ import Card from '$components/Card.astro';
 import DashboardSection from '$components/DashboardSection.astro';
 import DashboardSectionTitle from '$components/DashboardSectionTitle.astro';
 import Link from '$components/Link.astro';
+import TBody from '$components/TBody.astro';
+import Td from '$components/Td.astro';
+import Th from '$components/Th.astro';
+import THead from '$components/THead.astro';
 import { orders, statuses } from '$dummies/orders.js';
 
 const { className } = Astro.props;
@@ -18,61 +22,61 @@ const shownOrders = orders.slice(0, 5);
   </div>
   <Card className="overflow-hidden">
     <table class="hidden min-w-full md:block">
-      <thead>
-        <tr class="text-xs tracking-wider text-left text-gray-500 uppercase border-b border-gray-300 bg-gray-50">
-          <th scope="col" class="px-4 py-4">
-            Buyer
-          </th>
-          <th scope="col" class="px-4 py-4 text-right">
-            Amount
-          </th>
-          <th scope="col" class="px-4 py-4">
-            Status
-          </th>
-          <th scope="col" class="px-4 py-4 text-right">
-            Date
-          </th>
-        </tr>
-      </thead>
-      <tbody class="text-gray-700 divide-y divide-gray-300">
-      {shownOrders.map(({ buyer: {avatar, name}, amount, status, date }) => (
+      <THead>
         <tr>
-          <td class="w-full px-4 py-4 whitespace-nowrap">
+          <Th>
+            Buyer
+          </Th>
+          <Th className="text-right">
+            Amount
+          </Th>
+          <Th>
+            Status
+          </Th>
+          <Th className="text-right">
+            Date
+          </Th>
+        </tr>
+      </THead>
+      <TBody>
+      {shownOrders.map(({ buyer: {avatar, name, email}, amount, status, date }) => (
+        <tr>
+          <Td className="w-full">
             <div class="flex items-center">
               <Avatar src={avatar} alt={`${name}'s avatar'`} />
               <div class="ml-3">
                 <p class="font-semibold">{name}</p>
-                <p class="text-gray-500">Customer</p>
+                <p class="text-gray-500">{email}</p>
               </div>
             </div>
-          </td>
-          <td class="px-4 py-4 text-right whitespace-nowrap">
+          </Td>
+          <Td className="text-right">
             $ {amount} USD
-          </td>
-          <td class="px-4 py-4 whitespace-nowrap">
+          </Td>
+          <Td>
             <Badge color={statuses[status]}>{status}</Badge>
-          </td>
-          <td class="px-4 py-4 text-right whitespace-nowrap">
+          </Td>
+          <Td className="text-right">
             {date}
-          </td>
+          </Td>
         </tr>
       ))}
-      </tbody>
+      </TBody>
     </table>
     <div class="block md:hidden">
       <ul class="text-gray-700 divide-y divide-gray-300">
-        {shownOrders.map(({ buyer: {avatar, name}, amount, date, status }) => (
+        {shownOrders.map(({ buyer: {avatar, name, email}, amount, date, status }) => (
           <li class="p-4">
             <div class="flex items-center justify-between">
               <span class="text-gray-500">{date}</span>
               <Badge color={statuses[status]}>{status}</Badge>
             </div>
-            <div class="flex items-center justify-between mt-3">
+            <div class="flex flex-col mt-3 sm:items-center sm:flex-row sm:justify-between">
               <div class="flex items-center">
                 <Avatar src={avatar} alt={`${name}'s avatar'`} className="hidden sm:block" />
                 <div class="sm:ml-3">
                   <p class="font-semibold">{name}</p>
-                  <p class="text-gray-500">Customer</p>
+                  <p class="text-gray-500 truncate">{email}</p>
                 </div>
               </div>
               <span>$ {amount} USD</span>
