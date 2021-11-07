@@ -1,8 +1,49 @@
 ---
+import clsx from 'clsx';
 import Avatar from './Avatar.astro';
 import Menu from './Menu.astro';
 import IconButton from './IconButton.astro';
 import Input from './Input.astro';
+
+const notifications = [
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="5"/><path d="M17 22H5.266a2 2 0 0 1-1.985-2.248l.39-3.124A3 3 0 0 1 6.649 14H7"/><path d="M19 13v6"/><path d="M16 16h6"/></svg>',
+    title: 'New user registered',
+    type: 'success',
+    time: '2 min ago',
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.977 9.84A2 2 0 0 1 5.971 8h12.058a2 2 0 0 1 1.994 1.84l.803 10A2 2 0 0 1 18.833 22H5.167a2 2 0 0 1-1.993-2.16l.803-10z"/><path d="M16 11V6a4 4 0 0 0-4-4v0a4 4 0 0 0-4 4v5"/></svg>',
+    title: 'New order received',
+    type: 'info',
+    time: '5 min ago',
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.029 2.54a2 2 0 0 1 1.942 0l7.515 4.174a1 1 0 0 1 .514.874v8.235a2 2 0 0 1-1.029 1.748l-7 3.89a2 2 0 0 1-1.942 0l-7-3.89A2 2 0 0 1 3 15.824V7.588a1 1 0 0 1 .514-.874L11.03 2.54z"/><path d="M3 7l9 5m0 0l9-5m-9 5v9.5"/><path d="M7.5 9.5l9-5"/><path d="M6 12.328L9 14"/></svg>',
+    title: 'Order #R-2384 need to be processed',
+    type: 'warning',
+    time: '14 min ago',
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-FaceSad"><circle cx="12" cy="12" r="10"/><path d="M8 9.05v-.1"/><path d="M16 9.05v-.1"/><path d="M16 16c-.5-1.5-1.79-3-4-3s-3.5 1.5-4 3"/></svg>',
+    title: 'Order #R-2157 just got a bad review',
+    type: 'danger',
+    time: '18 min ago',
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h6V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h1"/><path d="M22 16v-4a4 4 0 0 0-4-4h-2v9h5a1 1 0 0 0 1-1z"/><path d="M15 17a3 3 0 1 0 6 0h-6z"/><path d="M22 14h-2"/><circle cx="7" cy="17" r="3"/></svg>',
+    title: 'Order #R-2206 is completed',
+    type: 'success',
+    time: '25 min ago',
+  },
+];
+
+const notificationColor = {
+  'success': 'bg-success-100 text-success-800',
+  'warning': 'bg-warning-100 text-warning-800',
+  'danger': 'bg-danger-100 text-danger-800',
+  'info': 'bg-info-100 text-info-800',
+}
 
 const userMenu = [
   [
@@ -31,16 +72,35 @@ const userMenu = [
   <div class="flex items-center gap-x-4">
     <div class="flex items-center flex-1 gap-x-3">
       <IconButton x-bind="sidebarButton" x-ref="sidebarButton">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
+        <span class="sr-only">Toggle sidebar</span>
       </IconButton>
       <Input type="search" placeholder="Search" className="hidden sm:flex sm:w-full md:w-2/3 lg:w-1/2" leading={<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z" /></svg>}/>
     </div>
     <div class="flex items-center ml-auto gap-x-3">
-      <IconButton>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.721 5.003L11.255 5c-3.344-.008-6.247 2.709-6.27 6v3.79c0 .79-.1 1.561-.531 2.218l-.287.438C3.73 18.11 4.2 19 4.985 19h14.03c.785 0 1.254-.89.818-1.554l-.287-.438c-.43-.657-.531-1.429-.531-2.219v-3.788c-.04-3.292-2.95-5.99-6.294-5.998z"/><path d="M15 19a3 3 0 1 1-6 0"/><path d="M12 2a2 2 0 0 1 2 2v1h-4V4a2 2 0 0 1 2-2z"/></svg>
-      </IconButton>
+      <div x-data="popover" x-bind="popover" class="relative">
+        <IconButton x-bind="popoverButton" x-ref="popoverButton">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.721 5.003L11.255 5c-3.344-.008-6.247 2.709-6.27 6v3.79c0 .79-.1 1.561-.531 2.218l-.287.438C3.73 18.11 4.2 19 4.985 19h14.03c.785 0 1.254-.89.818-1.554l-.287-.438c-.43-.657-.531-1.429-.531-2.219v-3.788c-.04-3.292-2.95-5.99-6.294-5.998z"/><path d="M15 19a3 3 0 1 1-6 0"/><path d="M12 2a2 2 0 0 1 2 2v1h-4V4a2 2 0 0 1 2-2z"/></svg>
+          <span class="sr-only">Toggle notifications</span>
+        </IconButton>
+        <div
+          x-bind="popoverPanel"
+          x-transition
+          class="absolute right-0 h-56 p-1 mt-3 overflow-y-auto bg-white rounded-lg shadow outline-none w-72"
+        >
+          {notifications.map(item => (
+            <a href="#" class="flex items-center p-3 rounded-lg outline-none focus:ring-2 focus:z-10 focus:relative ring-primary-600 hover:bg-gray-50">
+              <span class={clsx('block p-3 rounded-lg', notificationColor[item.type])}>{item.icon}</span>
+              <span class="flex flex-col ml-3">
+                <span class="font-semibold leading-tight text-gray-700">{item.title}</span>
+                <span class="mt-1 text-gray-500">{item.time}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
       <Menu items={userMenu}>
-        <button slot="button" x-bind="menuButton" x-ref="menuButton" class="transition-transform outline-none group active:scale-90">
+        <button x-bind="menuButton" x-ref="menuButton" class="transition-transform outline-none group active:scale-90">
           <Avatar src="https://randomuser.me/api/portraits/women/17.jpg" alt="Lisa Greyrat" />
         </button>
       </Menu>
