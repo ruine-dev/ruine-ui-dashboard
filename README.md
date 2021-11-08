@@ -14,7 +14,8 @@ https://ruine-dashboard.pages.dev/
 - [x] Popover for notification (Using alpine)
 - [x] Add sidebar submenu (Using alpine)
 - [x] Blank page
-- [ ] User list page
+- [x] User list page
+- [ ] User creation modal (Using alpine)
 - [ ] User details page
 - [ ] Profile page
 - [x] Login page

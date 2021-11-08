@@ -1,0 +1,53 @@
+---
+import AppLayout from '$layouts/AppLayout.astro';
+import Button from '$components/Button.astro';
+import DataCounter from '$components/DataCounter.astro';
+import Filter from './_components/Filter.astro';
+import Table from './_components/Table.astro';
+import Pagination from '$components/Pagination.astro';
+---
+
+<AppLayout title="Users">
+  <Button slot="action" color="primary">Create User</Button>
+  <div class="grid gap-y-8 sm:pb-6">
+    <div class="space-y-4">
+      <Filter />
+      <div class="items-center justify-between space-y-1 sm:flex">
+        <DataCounter active={2} count={50} />
+        <div
+          x-data={`{order: 'created_at'}`}
+          class="flex items-center text-gray-500"
+        >
+          <label for="order">Order by</label>
+          <select x-model="order" id="order" name="order" class="pr-1 font-medium reset">
+            <option value="created_at">
+              registration date
+            </option>
+            <option value="name">
+              name
+            </option>
+          </select>
+          <label for="sort">from</label>
+          <select x-show="order === 'created_at'" id="sort" name="sort" class="pr-1 font-medium reset">
+            <option value="desc">
+              newest
+            </option>
+            <option value="asc">
+              oldest
+            </option>
+          </select>
+          <select x-show="order === 'name'" id="sort" name="sort" class="pr-1 font-medium reset">
+            <option value="asc">
+              A-Z
+            </option>
+            <option value="desc">
+              Z-A
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <Table />
+    <Pagination active={2} count={50} className="mx-auto" />
+  </div>
+</AppLayout>

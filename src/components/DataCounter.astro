@@ -1,0 +1,6 @@
+---
+import clsx from 'clsx';
+
+const { active = 1, showing = 10, count = 10, className, ...props } = Astro.props;
+---
+<span class={clsx('inline-block text-gray-500', className)} {...props}>Showing {(showing * (active - 1)) + 1} to {(showing * (active - 1)) + showing} of {count} results</span>

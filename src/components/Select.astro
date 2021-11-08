@@ -1,0 +1,14 @@
+---
+import clsx from 'clsx';
+
+const { name, id, placeholder, className, ...props } = Astro.props;
+---
+<select
+  name={name}
+  id={id || name}
+  class={clsx('inline-flex items-center py-2 pl-4 pr-12 font-medium tracking-wide text-gray-700 transition bg-white border border-gray-300 rounded-lg shadow-sm outline-none appearance-none disabled:cursor-not-allowed disabled:opacity-60 focus:ring-2 ring-primary-600 focus:border-transparent', className)}
+  {...props}
+>
+  {Boolean(placeholder) && <option disabled selected>{placeholder}</option>}
+  <slot />
+</select>

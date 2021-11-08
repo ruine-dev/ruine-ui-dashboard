@@ -1,0 +1,33 @@
+---
+import Input from '$components/Input.astro';
+import Select from '$components/Select.astro';
+---
+<fieldset class="grid grid-cols-4 gap-4">
+  <legend class="sr-only">Filter user</legend>
+  <div class="col-span-4 lg:col-span-2">
+    <label for="search" class="sr-only">Search user</label>
+    <Input
+      name="search"
+      type="search"
+      placeholder="Search user by name or email..."
+      className="w-full"
+      leading={<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z" /></svg>}
+    />
+  </div>
+  <div class="col-span-4 sm:col-span-2 lg:col-span-1">
+    <label for="role" class="sr-only">Filter by role</label>
+    <Select name="role" className="w-full">
+      <option>All roles</option>
+      <option>Customer</option>
+      <option>Admin</option>
+    </Select>
+  </div>
+  <div class="col-span-4 sm:col-span-2 lg:col-span-1">
+    <label for="status" class="sr-only">Filter by status</label>
+    <Select name="status" className="w-full">
+      <option>All statuses</option>
+      <option>Active</option>
+      <option>Inactive</option>
+    </Select>
+  </div>
+</fieldset>

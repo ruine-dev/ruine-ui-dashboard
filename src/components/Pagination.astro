@@ -1,30 +1,27 @@
 ---
+import clsx from 'clsx';
 import IconButton from './IconButton.astro';
 
-const { active = 1, lastPage = 1 } = Astro.props;
+const { active = 1, showing = 10, count = 10, className } = Astro.props;
 
-const range = Array(lastPage).fill(0).map((_, i) => i + 1);
+const range = Array(count / showing).fill(0).map((_, i) => i + 1);
 ---
-<div class="flex items-center justify-between">
-  <span>Showing 11 to 20 of 100 results</span>
-  <div class="flex items-center space-x-2">
-    <IconButton size="sm">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4l-8 8 8 8"/></svg>
+<div class={clsx('flex items-center space-x-2', className)}>
+  <IconButton>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4l-8 8 8 8"/></svg>
+  </IconButton>
+  {range.map(page => (
+    <IconButton
+      key={page}
+      color={page === active ? 'primary' : null}
+    >
+      <span class="flex items-center justify-center w-4 h-4">
+        {page}
+      </span>
     </IconButton>
-    {range.map(page => (
-      <IconButton
-        key={page}
-        size="sm"
-        color={page === active ? 'primary' : null}
-      >
-        <span class="flex items-center justify-center w-4 h-4">
-          {page}
-        </span>
-      </IconButton>
-    ))}
-    <IconButton size="sm"><span class="flex items-center justify-center w-4 h-4">...</span></IconButton>
-    <IconButton size="sm">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l8 8-8 8"/></svg>
-    </IconButton>
-  </div>
+  ))}
+  <IconButton><span class="flex items-center justify-center w-4 h-4">...</span></IconButton>
+  <IconButton>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l8 8-8 8"/></svg>
+  </IconButton>
 </div>
