@@ -5,10 +5,10 @@ import ContentSectionTitle from '$components/ContentSectionTitle';
 import Textbox from '$components/Textbox';
 ---
 <ContentSection id="profile-information">
-  <form action="/profile" class="grid grid-cols-[14rem,calc(100%-32rem),14rem] gap-8">
+  <form action="/profile" class="space-y-6">
     <div
       x-data={`{photoName: null, photoPreview: null, originalPhoto: 'https://randomuser.me/api/portraits/women/17.jpg'}`}
-      class="sticky flex flex-col items-center px-4 py-2 top-24"
+      class="flex flex-col items-center w-56 px-4 py-2 mx-auto"
     >
       <img
         x-bind:src="photoPreview || originalPhoto"
@@ -39,7 +39,7 @@ import Textbox from '$components/Textbox';
         class="hidden"
       />
     </div>
-    <div>
+    <div class="max-w-xl w-full md:w-[calc(100%-16rem)] xl:w-[calc(100%-32rem)] space-y-4 mx-auto">
       <div>
         <ContentSectionTitle>Profile Information</ContentSectionTitle>
         <p class="text-gray-500">
