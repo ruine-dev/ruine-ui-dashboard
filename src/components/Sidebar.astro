@@ -11,9 +11,18 @@ const menu = [
     href: '/'
   },
   {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18"/><path d="M18 3v18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg>,
-    label: 'Blank',
-    href: '/blank'
+    icon: <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>,
+    label: 'Miscellaneous',
+    items: [
+      {
+        label: 'Blank',
+        href: '/blank'
+      },
+      {
+        label: '404',
+        href: '/404'
+      },
+    ]
   },
   {
     icon: <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M6 10V5a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1"/></svg>,

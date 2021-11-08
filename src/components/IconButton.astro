@@ -1,7 +1,7 @@
 ---
 import clsx from 'clsx';
 
-const { color = 'transparent', size = 'md', noHover, className, ...props } = Astro.props;
+const { as = 'button', color = 'transparent', size = 'md', noHover, className, ...props } = Astro.props;
 
 const getSize = (size) => {
   const sizes = {
@@ -37,15 +37,20 @@ const getColor = (color) => {
 
   return colors[color];
 }
----
 
-<button class={clsx(
+const classes = clsx(
   'inline-flex transition rounded-lg outline-none disabled:cursor-not-allowed disabled:opacity-60 active:scale-90 focus:ring-2',
   getSize(size),
   getColor(color),
   className
+);
+---
+{as === 'a' ? (
+  <a {...props} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button {...props} class={classes}>
+    <slot />
+  </button>
 )}
-  {...props}
->
-  <slot />
-</button>

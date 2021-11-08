@@ -1,0 +1,19 @@
+---
+import BaseHead from '$components/BaseHead.astro';
+import Button from '$components/Button.astro';
+import Logo from '$components/Logo.astro';
+---
+<html lang="en" class="lg:overflow-y-auto">
+  <head>
+    <BaseHead title="Page not found"/>
+  </head>
+  <body class="antialiased font-medium sm:text-sm">
+    <div class="flex flex-col items-center justify-center pt-20">
+      <Logo className="text-3xl"/>
+      <p class="mt-16 font-extrabold text-8xl text-primary-600">404</p>
+      <h1 class="mt-4 text-4xl font-extrabold text-gray-700">Page not found</h1>
+      <p class="mt-4 text-xl text-center text-gray-500">Oops! The page you're looking for is nowhere to be found</p>
+      <Button as="a" href="/" size="lg" className="mt-8">Back to dashboard</Button>
+    </div>
+  </body>
+</html>
