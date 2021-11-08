@@ -1,0 +1,69 @@
+---
+import Button from '$components/Button';
+import ContentSection from '$components/ContentSection';
+import ContentSectionTitle from '$components/ContentSectionTitle';
+import Textbox from '$components/Textbox';
+---
+<ContentSection id="profile-information">
+  <form action="/profile" class="grid grid-cols-[14rem,calc(100%-32rem),14rem] gap-8">
+    <div
+      x-data={`{photoName: null, photoPreview: null, originalPhoto: 'https://randomuser.me/api/portraits/women/17.jpg'}`}
+      class="sticky flex flex-col items-center px-4 py-2 top-24"
+    >
+      <img
+        x-bind:src="photoPreview || originalPhoto"
+        alt="Lisa Greyrat's Avatar"
+        class="object-cover w-32 h-32 mx-auto border border-gray-300 rounded-lg"
+      />
+      <Button type="button" @click="$refs.photo.click()" className="mt-4">
+        Change photo
+      </Button>
+      <input
+        type="file"
+        accept="image/*"
+        name="photo"
+        x-ref="photo"
+        x-on:change="
+          photoName = null;
+          photoPreview = null;
+          photoName = $event.target.files[0]?.name;
+          const reader = new FileReader();
+          reader.onload = (e) => {
+              photoPreview = e.target.result;
+          };
+          if ($event.target.files[0]) {
+            reader.readAsDataURL($event.target.files[0]);
+          }
+
+        "
+        class="hidden"
+      />
+    </div>
+    <div>
+      <div>
+        <ContentSectionTitle>Profile Information</ContentSectionTitle>
+        <p class="text-gray-500">
+          Update your account's profile information and email address.
+        </p>
+      </div>
+      <div action="/profile" class="space-y-4">
+        <Textbox
+          label="Name"
+          name="name"
+          placeholder="Enter your name"
+          value="Lisa Greyrat"
+        />
+        <Textbox
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          value="lisa-greyrat@example.com"
+        />
+        <div class="flex justify-end">
+          <Button>Save</Button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ContentSection>

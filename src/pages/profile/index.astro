@@ -1,0 +1,16 @@
+---
+import AppLayout from '$layouts/AppLayout.astro';
+import BrowserSession from './_components/BrowserSession.astro';
+import ProfileInformation from './_components/ProfileInformation.astro';
+import UpdatePassword from './_components/UpdatePassword.astro';
+---
+
+<AppLayout title="Profile">
+  <div class="grid divide-y divide-gray-300 gap-y-8">
+    <ProfileInformation />
+    <div class="w-[calc(100%-32rem)] divide-y divide-gray-300 mx-auto grid gap-8">
+      <UpdatePassword />
+      <BrowserSession />
+    </div>
+  </div>
+</AppLayout>
