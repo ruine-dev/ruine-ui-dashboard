@@ -1,4 +1,5 @@
 ---
+import IconButton from './IconButton.astro';
 import Logo from './Logo.astro';
 import SidebarHeading from './SidebarHeading.astro';
 import SidebarItem from './SidebarItem.astro';
@@ -45,7 +46,11 @@ const menu = [
 ---
 
 <div x-bind="sidebarOverlay" class="fixed top-0 left-0 z-20 w-full h-full lg:hidden bg-gray-800/80" />
-<aside x-bind="sidebarMenu" x-ref="sidebarMenu" class="fixed top-0 left-0 z-20 w-64 h-full pt-5 transform bg-white border-gray-300 lg:border-r">
+<aside x-bind="sidebarMenu" x-ref="sidebarMenu" class="fixed top-0 left-0 z-20 w-full h-full pt-5 transform bg-white border-gray-300 sm:w-64 lg:border-r">
+  <IconButton x-bind="sidebarClose" className="absolute top-4 right-4 sm:-right-16 sm:text-white">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20L4 4m16 0L4 20"/></svg>
+    <span class="sr-only">Close sidebar</span>
+  </IconButton>
   <div class="text-center">
     <Logo className="text-xl px-6" />
   </div>

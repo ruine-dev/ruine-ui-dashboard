@@ -57,6 +57,12 @@ export default function sidebar(
       },
     },
 
+    sidebarClose: {
+      ['@click']() {
+        this.close();
+      },
+    },
+
     sidebarMenu: {
       ['x-show']() {
         return this.open;
@@ -68,7 +74,7 @@ export default function sidebar(
         return 'transition linear duration-300';
       },
       ['x-transition:enter-start']() {
-        return '-translate-x-64';
+        return '-translate-x-full sm:-translate-x-64';
       },
       ['x-transition:enter-end']() {
         return 'translate-x-0';
@@ -80,7 +86,7 @@ export default function sidebar(
         return 'translate-x-0';
       },
       ['x-transition:leave-end']() {
-        return '-translate-x-64';
+        return '-translate-x-full sm:-translate-x-64';
       },
       ['@keydown.escape.document']() {
         if (isLowerThanScrollBreakpoint()) {
