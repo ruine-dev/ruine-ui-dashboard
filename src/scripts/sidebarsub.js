@@ -23,6 +23,9 @@ export default function sidebarSub() {
       ['x-show']() {
         return this.open;
       },
+      ['x-cloak']() {},
+      // TODO: uncomment below code after alpine fix focus bug
+      // ['x-collapse']() {},
       [':id']() {
         return `sidebar-sub-menu-${this.id}`;
       },
