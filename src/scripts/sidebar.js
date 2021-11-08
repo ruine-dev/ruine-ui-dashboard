@@ -31,7 +31,7 @@ export default function sidebar(
           }
           // TODO: remove this hack when alpine fixes the bug
           setTimeout(() => {
-            this.$refs.sidebarMenu.querySelector('a, button').focus();
+            this.$refs.sidebarMenu.querySelector('button:not([x-bind="sidebarClose"]), [href], input, select, textarea').focus();
           }, 50);
         });
       }
@@ -70,24 +70,6 @@ export default function sidebar(
       [noScroll ? 'x-trap.noscroll' : 'x-trap']() {
         return this.trap;
       },
-      ['x-transition:enter']() {
-        return 'transition linear duration-300';
-      },
-      ['x-transition:enter-start']() {
-        return '-translate-x-full sm:-translate-x-64';
-      },
-      ['x-transition:enter-end']() {
-        return 'translate-x-0';
-      },
-      ['x-transition:leave']() {
-        return 'transition linear duration-300';
-      },
-      ['x-transition:leave-start']() {
-        return 'translate-x-0';
-      },
-      ['x-transition:leave-end']() {
-        return '-translate-x-full sm:-translate-x-64';
-      },
       ['@keydown.escape.document']() {
         if (isLowerThanScrollBreakpoint()) {
           this.close();
@@ -111,30 +93,6 @@ export default function sidebar(
       },
       ['@click']() {
         this.close();
-      },
-      ['x-transition:enter']() {
-        return 'transition linear duration-300';
-      },
-      ['x-transition:enter-start']() {
-        return 'opacity-0';
-      },
-      ['x-transition:enter-end']() {
-        return 'opacity-100';
-      },
-      ['x-transition:leave']() {
-        return 'transition linear duration-300';
-      },
-      ['x-transition:leave-start']() {
-        return 'opacity-100';
-      },
-      ['x-transition:leave-end']() {
-        return 'opacity-0';
-      },
-    },
-
-    sidebarSibling: {
-      [':class']() {
-        return { 'lg:pl-64': this.open };
       },
     },
   };

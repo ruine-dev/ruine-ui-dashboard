@@ -45,9 +45,28 @@ const menu = [
 ];
 ---
 
-<div x-bind="sidebarOverlay" class="fixed top-0 left-0 z-20 w-full h-full lg:hidden bg-gray-800/80" />
-<aside x-bind="sidebarMenu" x-ref="sidebarMenu" class="fixed top-0 left-0 z-20 w-full h-full pt-5 transform bg-white border-gray-300 sm:w-64 lg:border-r">
-  <IconButton x-bind="sidebarClose" className="absolute top-4 right-4 sm:-right-16 sm:text-white">
+<div
+  x-bind="sidebarOverlay"
+  class="fixed top-0 left-0 z-20 w-full h-full lg:hidden bg-gray-800/80"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="opacity-0"
+  x-transition:enter-end="opacity-100"
+  x-transition:leave="transition ease-in duration-300"
+  x-transition:leave-start="opacity-100"
+  x-transition:leave-end="opacity-0"
+/>
+<aside
+  x-bind="sidebarMenu"
+  x-ref="sidebarMenu"
+  class="fixed top-0 left-0 z-20 w-full h-full pt-5 transform bg-white border-gray-300 sm:w-64 lg:border-r"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="-translate-x-full sm:-translate-x-64"
+  x-transition:enter-end="translate-x-0"
+  x-transition:leave="transition ease-in duration-300"
+  x-transition:leave-start="translate-x-0"
+  x-transition:leave-end="-translate-x-full sm:-translate-x-64"
+>
+  <IconButton x-bind="sidebarClose" className="lg:hidden absolute top-4 right-4 sm:-right-12 sm:text-white">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20L4 4m16 0L4 20"/></svg>
     <span class="sr-only">Close sidebar</span>
   </IconButton>
