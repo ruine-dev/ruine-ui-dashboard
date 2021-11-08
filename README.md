@@ -1,4 +1,5 @@
 # ruine UI Dashboard
+![ruine UI Dashboard Preview](https://user-images.githubusercontent.com/48067039/140812271-6546da2d-51a4-4e3b-996d-8bb1e186a097.png)
 A responsive and accessible admin dashboard template built using ruine UI, a TailwindCSS based design system, and AlpineJS.
 
 See the demo on https://ruine-dashboard.pages.dev/
