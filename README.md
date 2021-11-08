@@ -1,25 +1,43 @@
-# ruine UI Dashboard HTML Template
+# ruine UI Dashboard
+A responsive and accessible admin dashboard template built using ruine UI, a TailwindCSS based design system, and AlpineJS.
 
-Currently work in progress!
+See the demo on https://ruine-dashboard.pages.dev/
 
-Let us know that you're interested to use this template by giving it a star :)
+## Installation
+There're two ways on how to get this template:
+### Clone this repository
+```bash
+git clone https://github.com/ruine-dev/ruine-ui-dashboard.git
+```
+This template is created by using [Astro](https://astro.build), check their [documentation](https://docs.astro.build/getting-started/) on how to use it.
+### Download the released compiled version
+You could also download it from this repository [releases page](https://github.com/ruine-dev/ruine-ui-dashboard/releases).
 
-Demo:
-https://ruine-dashboard.pages.dev/
+Move all the assets into your project, then replace the Tailwind config and CSS file with the one this template provided.
+## Feature
 
-## To do
+### Pages
 
-- [x] Dashboard page
-- [x] Make sidebar and dropdown interactive (Using alpine)
-- [x] Popover for notification (Using alpine)
-- [x] Add sidebar submenu (Using alpine)
-- [x] Blank page
-- [x] User list page
-- [ ] User creation modal (Using alpine)
-- [ ] User details page
-- [ ] Profile page
-- [x] Login page
-- [x] Register page
-- [x] Email verification page
-- [x] Forgot password page
-- [ ] 404 page
+These are the available pages from this template that you could use for your project:
+
+- Dashboard page
+- Profile page
+- User list page
+- User details page
+- Login page
+- Register page
+- Email verification page
+- Forgot password page
+- 404 page
+
+## License
+
+**ruine UI Dashboard** is licensed under [MIT](https://opensource.org/licenses/MIT).
+
+## Special Thanks
+- [Astro](https://astro.build)
+- [TailwindCSS](https://tailwindcss.com)
+- [Akar Icons](https://akaricons.com)
+- [AlpineJS](https://alpinejs.dev)
+- [Unsplash](https://unsplash.com)
+- [Random User Generator](https://randomuser.me)
