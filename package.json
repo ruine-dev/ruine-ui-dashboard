@@ -15,6 +15,7 @@
     "tailwindcss": "^2.2.19"
   },
   "dependencies": {
+    "@alpinejs/collapse": "^3.5.0",
     "@alpinejs/trap": "^3.5.0"
   }
 }

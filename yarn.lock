@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@alpinejs/collapse@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@alpinejs/collapse/-/collapse-3.5.0.tgz#5a0312a8fa5b0766dc7825b84a200d79a0225978"
+  integrity sha512-3Gur2WZFRdibsFiw7iuprJyCnnKW2fa3ApXEIbtYtPwoXootNq+VMiWiKJaEdu1+upJZUwm/QJ7DDyd5nIPYpw==
+
 "@alpinejs/trap@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@alpinejs/trap/-/trap-3.5.0.tgz#038ca6406a9270f10f14b49ecf3734a50d416e7a"
@@ -942,9 +947,9 @@ ajv@^6.12.3:
     uri-js "^4.2.2"
 
 alpinejs@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.4.2.tgz#e570b7439a32cb07a1b5f1a47d2966388469111d"
-  integrity sha512-PCTLdySJG5ercbN/g4sO+Nyo0TjzV3IP5W9L3UiSj3756VZPUctNiikLAoKX5al2NlLE2O7jPpgtakuRpLLeIQ==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.5.0.tgz#7acb3026306f4a419117bcc9f9242c9a059644be"
+  integrity sha512-75gboKtn1AjGxLLWXMSZQbD1VroGqcncNmbNSPq2v9XjpGIb8U+YAHUJ0hp2MEYmMFfkXPekhSg4ESXlxh9ifg==
   dependencies:
     "@vue/reactivity" "~3.1.1"
 
