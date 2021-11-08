@@ -2,8 +2,8 @@
 import Avatar from '$components/Avatar.astro';
 import Badge from '$components/Badge.astro';
 import Card from '$components/Card.astro';
-import DashboardSection from '$components/DashboardSection.astro';
-import DashboardSectionTitle from '$components/DashboardSectionTitle.astro';
+import ContentSection from '$components/ContentSection.astro';
+import ContentSectionTitle from '$components/ContentSectionTitle.astro';
 import Link from '$components/Link.astro';
 import TBody from '$components/TBody.astro';
 import Td from '$components/Td.astro';
@@ -15,9 +15,9 @@ const { className } = Astro.props;
 
 const shownOrders = orders.slice(0, 5);
 ---
-<DashboardSection className={className}>
+<ContentSection className={className}>
   <div class="flex items-center justify-between">
-    <DashboardSectionTitle>Recent Orders</DashboardSectionTitle>
+    <ContentSectionTitle>Recent Orders</ContentSectionTitle>
     <Link href="#">View all</Link>
   </div>
   <Card className="overflow-hidden -mx-6 sm:mx-0">
@@ -86,4 +86,4 @@ const shownOrders = orders.slice(0, 5);
       </ul>
     </div>
   </Card>
-</DashboardSection>
+</ContentSection>

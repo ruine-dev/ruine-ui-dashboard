@@ -1,16 +1,16 @@
 ---
 import Avatar from '$components/Avatar';
 import Card from '$components/Card';
-import DashboardSection from '$components/DashboardSection';
-import DashboardSectionTitle from '$components/DashboardSectionTitle';
+import ContentSection from '$components/ContentSection';
+import ContentSectionTitle from '$components/ContentSectionTitle';
 import { products } from '$dummies/products';
 
 const { className } = Astro.props;
 ---
 
-<DashboardSection className={className}>
+<ContentSection className={className}>
   <div class="flex items-center justify-between">
-    <DashboardSectionTitle>Popular Products</DashboardSectionTitle>
+    <ContentSectionTitle>Popular Products</ContentSectionTitle>
     <label for="popular_period" class="sr-only">Popular period</label>
     <select name="popular_period" id="popular_period" class="pr-1 font-medium reset">
       <option value="monthly">Monthly</option>
@@ -44,4 +44,4 @@ const { className } = Astro.props;
       ))}
     </ul>
   </Card>
-</DashboardSection>
+</ContentSection>
