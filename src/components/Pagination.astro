@@ -13,7 +13,7 @@ const range = Array(count / showing).fill(0).map((_, i) => i + 1);
   {range.map(page => (
     <IconButton
       key={page}
-      color={page === active ? 'primary' : null}
+      color={page === active ? 'primary' : 'transparent'}
     >
       <span class="flex items-center justify-center w-4 h-4">
         {page}
