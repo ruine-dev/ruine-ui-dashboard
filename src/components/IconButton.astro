@@ -1,7 +1,7 @@
 ---
 import clsx from 'clsx';
 
-const { color = 'transparent', size = 'md', className, ...props } = Astro.props;
+const { color = 'transparent', size = 'md', noHover, className, ...props } = Astro.props;
 
 const getSize = (size) => {
   const sizes = {
@@ -32,7 +32,7 @@ const getColor = (color) => {
       noDangerClasses,
       noTransparent,
     ),
-    transparent: clsx('hover:bg-gray-100 text-gray-700', noBorder, noDangerClasses),
+    transparent: clsx('text-gray-700', noBorder, noDangerClasses, {'hover:bg-gray-100': !noHover}),
   };
 
   return colors[color];
