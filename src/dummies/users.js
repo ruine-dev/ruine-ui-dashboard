@@ -14,7 +14,7 @@ export const users = [
     name: 'Kelsi Kohrt',
     email: 'kelsi-kohrt@example.com',
     role: 'customer',
-    status: 'active',
+    status: 'inactive',
     created_at: 'November 02, 2020',
   },
   {
@@ -41,7 +41,7 @@ export const users = [
     name: 'Carmelia Bushill',
     email: 'carmelia-bushill@example.com',
     role: 'customer',
-    status: 'active',
+    status: 'inactive',
     created_at: 'October 24, 2020',
   },
   {
@@ -86,7 +86,7 @@ export const users = [
     name: 'Delbert McIlharga',
     email: 'delbert-mcilharga@example.com',
     role: 'customer',
-    status: 'active',
+    status: 'inactive',
     created_at: 'August 21, 2020',
   },
 ];
