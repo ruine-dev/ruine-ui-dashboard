@@ -1,0 +1,39 @@
+<div
+  x-data={`{order: 'created_at'}`}
+  class="flex flex-col text-gray-500 sm:items-center sm:flex-row"
+>
+  <div>
+    <label for="order">Order by</label>
+    <select x-model="order" id="order" name="order" class="pr-1 font-medium reset">
+      <option value="created_at">
+        registration date
+      </option>
+      <option value="name">
+        name
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="sort">from</label>
+    <template hidden x-if="order === 'created_at'">
+      <select id="sort" name="sort" class="pr-1 font-medium reset">
+        <option value="desc">
+          newest
+        </option>
+        <option value="asc">
+          oldest
+        </option>
+      </select>
+    </template>
+    <template hidden x-if="order === 'name'">
+      <select id="sort" name="sort" class="pr-1 font-medium reset">
+        <option value="asc">
+          A-Z
+        </option>
+        <option value="desc">
+          Z-A
+        </option>
+      </select>
+    </template>
+  </div>
+</div>
