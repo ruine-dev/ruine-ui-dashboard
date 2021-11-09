@@ -1,7 +1,7 @@
-export default function sidebarSub() {
+export default function sidebarSub(initialOpen) {
   return {
     id: Math.random().toString(36).substr(2, 9),
-    open: false,
+    open: initialOpen,
 
     toggle() {
       this.open = !this.open;
