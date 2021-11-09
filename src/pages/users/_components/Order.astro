@@ -1,3 +1,6 @@
+---
+import Link from '$components/Link';
+---
 <div
   x-data={`{order: 'created_at'}`}
   class="flex flex-col text-gray-500 sm:items-center sm:flex-row"
@@ -36,4 +39,5 @@
       </select>
     </template>
   </div>
+  <Link as="button" color="danger" @click="document.getElementById('filter').reset()" className="ml-2">Reset</Link>
 </div>
