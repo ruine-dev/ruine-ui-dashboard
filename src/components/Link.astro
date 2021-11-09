@@ -3,12 +3,15 @@ import clsx from 'clsx';
 
 const { as = 'a', color = 'primary', className, ...props } = Astro.props;
 
+const noDangerClasses = 'ring-primary-600';
+
 const colors = {
-  primary: 'text-primary-600 hover:text-primary-700',
-  passive: 'text-gray-600 hover:text-gray-700',
+  primary: clsx('text-primary-600 hover:text-primary-700', noDangerClasses),
+  danger: clsx('text-danger-600 hover:text-danger-700 ring-danger-600'),
+  passive: clsx('text-gray-600 hover:text-gray-700', noDangerClasses),
 };
 
-const classes = clsx('font-semibold outline-none focus:ring-2 ring-primary-600 rounded', colors[color], className);
+const classes = clsx('font-semibold outline-none focus:ring-2 rounded', colors[color], className);
 ---
 {as === 'button' ? (
   <button class={classes} {...props}>

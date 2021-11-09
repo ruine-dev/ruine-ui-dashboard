@@ -2,13 +2,18 @@
 import AppLayout from '$layouts/AppLayout';
 import Button from '$components/Button';
 import DataCounter from '$components/DataCounter';
+import Pagination from '$components/Pagination';
+import CreateUserDialog from './_components/CreateUserDialog.astro';
 import Filter from './_components/Filter';
 import Table from './_components/Table';
-import Pagination from '$components/Pagination';
 ---
 
-<AppLayout title="Users">
-  <Button slot="action" color="primary">Create User</Button>
+<AppLayout
+  title="Users"
+  x-data={`{userModalOpen: false}`}
+  x-init="$watch('userModalOpen', (value) => value === true ? $nextTick(() => document.querySelector('[role=dialog]').querySelector('button:not([data-close=true]), [href], input, select, textarea').focus()) : null)"
+>
+  <Button slot="action" color="primary" @click="userModalOpen = true">Create User</Button>
   <div class="grid gap-y-8 sm:pb-6">
     <div class="space-y-4">
       <Filter />
@@ -50,4 +55,5 @@ import Pagination from '$components/Pagination';
     <Table />
     <Pagination active={2} count={50} className="mx-auto" />
   </div>
+  <CreateUserDialog />
 </AppLayout>

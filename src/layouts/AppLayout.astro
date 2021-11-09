@@ -3,7 +3,7 @@ import BaseHead from '$components/BaseHead';
 import Navbar from '$components/Navbar';
 import Sidebar from '$components/Sidebar';
 
-const { title } = Astro.props;
+const { title, ...props } = Astro.props;
 
 const sidebarOptions = JSON.stringify({
   noScrollClass: 'overflow-y-hidden',
@@ -18,7 +18,7 @@ const sidebarOptions = JSON.stringify({
     <Sidebar />
     <div x-bind:class={`{ 'lg:pl-64 ease-out': open, 'ease-in': !open }`} class="flex flex-col flex-1 transition-all duration-300 lg:pl-64">
       <Navbar />
-      <main class="p-6">
+      <main class="p-6" {...props}>
         <div class="flex items-center justify-between">
           {Boolean(title) && <h1 class="text-2xl font-bold text-gray-700">{title}</h1>}
           <slot name="action" />
