@@ -1,4 +1,5 @@
 ---
+import Alert from '$components/Alert';
 import Button from '$components/Button';
 import Dialog from '$components/Dialog';
 import Link from '$components/Link';
@@ -10,7 +11,7 @@ import Textbox from '$components/Textbox';
   onClose="userModalOpen = false"
   className="max-w-md w-full"
 >
-  <form action="/users" class="mt-6 space-y-5">
+  <form action="/users" class="mt-3 space-y-5">
     <Textbox
       label="Name"
       name="name"
@@ -38,6 +39,9 @@ import Textbox from '$components/Textbox';
       placeholder="Enter password confirmation"
       className="w-full"
     />
+    <Alert color="info">
+      The created user will automatically have a role of admin.
+    </Alert>
     <div class="flex items-center justify-between w-full py-4 mt-4 bg-gray-50">
       <Link as="button" type="button" @click="userModalOpen = false" color="danger">Cancel</Link>
       <Button type="submit" color="primary">Create User</Button>
