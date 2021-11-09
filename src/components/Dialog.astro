@@ -28,10 +28,10 @@ const { title, open, onClose, className, ...props } = Astro.props;
       x-transition:leave-end="opacity-0 scale-95"
       x-trap.noscroll={open}
       @keydown.escape={onClose}
-      class={clsx('bg-white rounded-xl relative mx-auto', className)}
+      class={clsx('bg-white rounded-xl relative mx-auto overflow-hidden', className)}
       {...props}
     >
-      <div class="w-full px-6 pt-4 overflow-y-auto" x-cloak>
+      <div class="w-full px-6 pt-4" x-cloak>
         <div class="flex items-center justify-between">
           <h3 class="text-lg font-bold tracking-wider text-gray-700" x-bind="dialogTitle">
             {title}
