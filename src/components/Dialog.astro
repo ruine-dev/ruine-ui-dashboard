@@ -7,6 +7,11 @@ const { title, open, onClose, className, ...props } = Astro.props;
 <div
   x-show={open}
   x-cloak
+  x-init={`$nextTick(() => document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && ${open}) {
+      ${onClose}
+    }
+  }))`}
   class="fixed top-0 left-0 z-20 w-full h-full overflow-y-auto bg-gray-800/80"
   x-transition:enter="transition ease-out duration-300"
   x-transition:enter-start="opacity-0"
@@ -15,7 +20,9 @@ const { title, open, onClose, className, ...props } = Astro.props;
   x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0"
 >
-  <div class="flex items-center min-h-[calc(100%-2rem)] my-4">
+  <div
+    class="flex items-center min-h-[calc(100%-2rem)] my-4"
+  >
     <div
       x-data="dialog"
       x-bind="dialog"
@@ -27,7 +34,6 @@ const { title, open, onClose, className, ...props } = Astro.props;
       x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
       x-trap.noscroll={open}
-      @keydown.escape={onClose}
       class={clsx('bg-white rounded-xl relative mx-auto overflow-hidden', className)}
       {...props}
     >
