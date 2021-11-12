@@ -58,7 +58,10 @@ In those mentioned pages already included several components, such as:
 - Icon Button
 - Input & Label
 - Menu / Dropdown
+- Pagination
+- Popover
 - Select
+- Table
 
 ## License
 

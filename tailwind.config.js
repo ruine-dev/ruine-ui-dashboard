@@ -12,10 +12,10 @@ module.exports = {
       },
       colors: {
         primary: colors.blue,
-        success: colors.green,
-        danger: colors.red,
+        success: colors.emerald,
+        danger: colors.rose,
         warning: colors.amber,
-        info: colors.blue,
+        info: colors.indigo,
       },
     },
   },
