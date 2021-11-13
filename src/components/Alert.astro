@@ -11,5 +11,5 @@ const colors = {
 };
 ---
 <div role="alert" {...props} class={clsx('flex items-center px-4 py-3 mt-3 space-x-2 rounded-lg', colors[color], className)}>
-  <div>{Boolean(title) && <span class="mr-1 font-semibold">{title}</span>}<slot /></div>
+  <div>{Boolean(title) && <span class="mr-1 font-medium">{title}</span>}<slot /></div>
 </div>

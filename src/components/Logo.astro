@@ -2,8 +2,8 @@
 import clsx from 'clsx';
 
 const { href, className } = Astro.props;
-const baseClass = clsx('font-semibold tracking-tight text-gray-700', className);
-const subClass = clsx('font-bold text-primary-600');
+const baseClass = clsx('font-medium tracking-tight text-gray-700', className);
+const subClass = clsx('font-semibold text-primary-600');
 ---
 {Boolean(href) ? (
   <a href={href} class={baseClass}>
