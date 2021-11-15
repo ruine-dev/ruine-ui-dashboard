@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['PlusJakartaSans', ...defaultTheme.fontFamily.sans],
+        sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: colors.blue,
