@@ -1,11 +1,11 @@
 import Alpine from 'alpinejs';
 import trap from '@alpinejs/trap';
 import collapse from '@alpinejs/collapse';
-import dialog from './dialog';
-import menu from './menu';
-import popover from './popover';
-import sidebar from './sidebar';
-import sidebarSub from './sidebarsub';
+import dialog from './dialog.js';
+import menu from './menu.js';
+import popover from './popover.js';
+import sidebar from './sidebar.js';
+import sidebarSub from './sidebarsub.js';
 
 Alpine.plugin(trap);
 Alpine.plugin(collapse);

@@ -2,15 +2,14 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./public/**/*.html', './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./public/**/*.html', './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       fontFamily: {
         sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        current: 'currentColor',
         primary: colors.blue,
         success: colors.emerald,
         danger: colors.rose,
@@ -18,9 +17,6 @@ module.exports = {
         info: colors.indigo,
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };

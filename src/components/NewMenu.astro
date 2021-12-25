@@ -1,0 +1,38 @@
+---
+const { itemGroups } = Astro.props;
+---
+<div x-data="menu" x-bind="menu" class="relative inline-block">
+  <slot />
+  <div
+    x-ref="menuList"
+    x-bind="menuList"
+    x-transition
+    class="absolute right-0 w-56 mt-2 bg-white rounded-lg shadow outline-none"
+  >
+    <div class="text-gray-700 divide-y">
+      {itemGroups.map(group => (
+        <div class="p-1">
+          {group.map(item => item.href ? (
+            <a
+              x-bind="menuItem"
+              href={item.href}
+              class="flex items-center w-full px-3 py-2 text-left rounded-lg outline-none focus:bg-primary-600 focus:text-white"
+            >
+              {item.icon}
+              {item.label}
+            </a>
+          ) : (
+            <button
+              x-bind="menuItem"
+              class="flex items-center w-full px-3 py-2 text-left rounded-lg outline-none focus:bg-primary-600 focus:text-white"
+              onclick={item.onclick}
+            >
+              {item.icon}
+              {item.label}
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 ---
-import IconButton from './IconButton';
-import Logo from './Logo';
-import SidebarHeading from './SidebarHeading';
-import SidebarItem from './SidebarItem';
+import IconButton from './IconButton.astro';
+import Logo from './Logo.astro';
+import SidebarHeading from './SidebarHeading.astro';
+import SidebarItem from './SidebarItem.astro';
 
 const menu = [
   {
@@ -67,7 +67,7 @@ const menu = [
 <aside
   x-bind="sidebarMenu"
   x-ref="sidebarMenu"
-  class="fixed top-0 left-0 z-20 w-full h-full pt-5 transform bg-white border-gray-300 sm:w-64 lg:border-r"
+  class="fixed top-0 left-0 z-20 w-full h-full pt-5 bg-white border-gray-300 sm:w-64 lg:border-r"
   x-transition:enter="transition ease-out duration-300"
   x-transition:enter-start="-translate-x-full sm:-translate-x-64"
   x-transition:enter-end="translate-x-0"

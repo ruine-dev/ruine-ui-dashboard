@@ -9,13 +9,15 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "alpinejs": "^3.4.2",
-    "astro": "^0.20.12",
+    "alpinejs": "^3.7.1",
+    "astro": "0.20.12",
+    "autoprefixer": "^10.4.0",
     "clsx": "^1.1.1",
-    "tailwindcss": "^2.2.19"
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.7"
   },
   "dependencies": {
-    "@alpinejs/collapse": "^3.5.0",
-    "@alpinejs/trap": "^3.5.0"
+    "@alpinejs/collapse": "^3.7.1",
+    "@alpinejs/trap": "^3.7.1"
   }
 }
